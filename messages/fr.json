@@ -1,0 +1,215 @@
+{
+  "navbar": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "HomeComponents": {
+    "about": {
+      "title": {
+        "first": "Bienvenue chez",
+        "second": "Electrica Services"
+      },
+      "description": "Obtenez et construisez des services de qualité en électricité et en réseau",
+      "contactBtn": "CONTACTEZ-NOUS MAINTENANT"
+    },
+    "presentation": {
+      "title": "QUI SOMMES NOUS",
+      "title1": "Fournir des solutions électriques fiables et de haute qualité",
+      "title2": "Opérations à l'échelle nationale dans plusieurs secteurs électriques",
+      "description": "Avec plus de deux ans d'expérience, Electrica propose des solutions électriques fiables et adaptées aux grandes entreprises du pays. Nous proposons une logistique complète et des services personnalisés pour répondre aux besoins spécifiques de chaque marché.",
+      "values": {
+        "first": "Des solutions électriques fiables et testées",
+        "second": "Une expertise en logistique et en expédition",
+        "third": "Expérience avérée en matière de qualité et d'excellence"
+      }
+    },
+    "Offer": {
+      "title": "QUI SOMMES NOUS",
+      "description": "Nous offrons des services électriques rentables",
+      "services": {
+        "first": "MAINTENANCE INFORMATIQUE",
+        "second": "INSTALLATION DE RÉSEAU",
+        "third": "INSTALLATION ÉLECTRIQUE"
+      },
+      "OurPrinciple": "Nous Fournissons des services d'électricien et d'électricité de la meilleur qualité à tous."
+    },
+    "Objectives": {
+      "title": "POURQUOI NOUS CHOISIR",
+      "description": "Fournir des services électriques fiables à tous",
+      "experience": "Ans d'experience",
+      "payment": {
+        "title": "Paiement Facile",
+        "description": "Des options de paiement flexibles et sécurisées conçues pour votre confort."
+      },
+      "workforce": {
+        "title": "Main d'oeuvre Qualifiée",
+        "description": "Nos techniciens certifiés sont hautement qualifiés pour fournir des services sûrs et efficaces."
+      },
+      "data": [
+        {
+          "title": "À propos",
+          "description": "Avec plus de deux ans d'experience, nous fournissons des solutions logistiques sur mesure."
+        },
+        {
+          "title": "mission",
+          "description": "Fournir des solutions logistiques intelligentes, efficaces et fiables à nos clients."
+        },
+        {
+          "title": "vision",
+          "description": "Être à la pointe de l'avenir de la logistique grâce à l'innovation, à la durabilité et à l'excellence."
+        }
+      ],
+      "solutions": {
+        "first": "Nos Solutions sont testées.",
+        "second": "Tirer parti de notre expérience en matière de service.",
+        "third": "Éprouvé et le meilleur de sa catégorie."
+      }
+    },
+    "benefits": {
+      "title": "NOS AVANTAGES",
+      "question": "Pourquoi choisir ELectrica",
+      "description": "Avec plus de deux ans d'expertise éprouvée, nous nous engageons à fournir des solutions électriques de classe mondiale adaptées à vos besoins.",
+      "goals": {
+        "first": "Notre objectif principal est la satisfaction du client grâce à des services fiables.",
+        "second": "Nous mettons en oeuvre des stratégies proatives pour assurer des opérations ininterrompues.",
+        "third": "Nous mettons en oeuvre des strategies proactives pour assurer des operations ininterrompues."
+      }
+    },
+    "work": {
+      "title": "COMMENT NOUS TRAVAILLONS",
+      "process": "Un processus simple en 3 étapes pour fournir un service de qualité",
+      "works": [
+        {
+          "title": "Demander un devis",
+          "description": "Contactez-nous, partagez vos besoins de services et recevez un devis personnalisé."
+        },
+        {
+          "title": "Évaluation du site",
+          "description": "Nos experts évalueront votre site ou projet pour plannifier la solution la meilleur et la plus efficace."
+        },
+        {
+          "title": "Éxecution des services",
+          "description": "Nous livrons le service avec précision, sécurité et professionnalisme dans les délais et le budget impartis."
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "NOTRE PORTEFEUILLE",
+      "description": "Nous fournissons des résultats aux leaders de l'industrie"
+    },
+    "contact": {
+      "title": "CAPACITÉS",
+      "service": "Des services qui aident nos clients à répondre",
+      "description": "Avec plus de deux ans d'expérience dans la fourniture des solutions aux grandes entreprises à travers le pays, nous proposons des solutions de bout en bout.",
+      "capabilities": [
+        {
+          "id": 1,
+          "title": "Services électriques complets",
+          "description": "Couvrant tout, de la distribution d'énergie aux systèmes d'éclairage et de sécurité, conçus pour l'efficacité et la longévité."
+        },
+
+        {
+          "id": 2,
+          "title": "Infrastructure réseau évolutive",
+          "description": "Construire des réseaux robustes et adaptables pour répondre à vos desoins actuels et futurs en matière des données et de communication."
+        },
+
+        {
+          "id": 3,
+          "title": "Informatique sur mesure",
+          "description": "Proposants le développement de logiciel, l'integration de systèmes et le support informatique personnalisés en fonction des besoins spécifiques de votre."
+        }
+      ],
+      "message": "Contactez Nous",
+      "form": {
+        "Name": "Nom",
+        "Firstname": "Prénom",
+        "Email": "Email",
+        "Phone": "Téléphone",
+        "Company": "Entreprise",
+        "Address": "Addresse",
+        "Submit": "Envoyer"
+      }
+    },
+    "testimonial": {
+      "title": "TÉMOIGNAGES",
+      "question": "Ce que nos clients disent de nous.",
+      "testimonials": [
+        {
+          "name": "Jean Mwamba",
+          "rate": "5",
+          "satisfaction": "Client satisfait",
+          "message": "Grâce à ELECTRICA, notre maison est désormais câblée de manière sûre et efficace. Leur souci du détail est incomparable !"
+        },
+        {
+          "name": "Alexandre Kabangu",
+          "rate": "4",
+          "satisfaction": "Client satisfait",
+          "message": "J'ai été impressionné par la propreté et l'organisation du travail. ELECTRICA accorde une grande importance à la sécurité et à la satisfaction de ses clients."
+        }
+      ]
+    },
+    "footer": {
+      "about": "À propos de nous",
+      "description": "Désire obtenir la douleur par elle-même, parce que c'est de la douleur, mais parfois les circonstances.",
+      "right": "Tous droits réservés",
+      "explore": "Explorer",
+      "link1": "À propos de l'entreprise",
+      "link2": "Rencontrer l'équipe",
+      "link3": "Actualités et médias",
+      "link4": "Nos projets",
+      "gallery": "Gallerie"
+    }
+  },
+  "AboutComponent": {
+    "title": "À propos de nous",
+    "description": "Nous sommes des professionnels dévoués offrant des services fiables d’entretien électrique et domestique, adaptés à vos besoins. Qu’il s’agisse d’une réparation rapide ou d’un contrôle complet du système, notre équipe d’experts veille à votre sécurité et à votre satisfaction. Forts de plusieurs années d’expérience et animés par la passion du travail bien fait, nous sommes fiers de proposer des solutions durables.",
+    "title1": "Services rapides et amicaux",
+    "description1": "Besoin d’un travail bien fait – et rapidement ? Nos techniciens qualifiés sont prêts à vous aider avec des services fiables, le jour même. Nous apportons une attitude chaleureuse, une expertise approfondie et un engagement à dépasser vos attentes.",
+    "service1": "Professionnels vérifiés et contrôlés",
+    "service2": "Satisfaction garantie par notre Promesse de Bonheur Handy",
+    "service3": "Assistance 24/7 par un vrai humain (pas de robots !)",
+    "service4": "Tarification honnête sans frais cachés",
+    "btntext": "Faire une demande",
+    "service": "NOS SERVICES",
+    "services": [
+      [
+        {
+          "id": 1,
+          "Icon": "FaComputer",
+          "title": "MAINTENANCE INFORMATIQUE",
+          "description": "Gardez vos appareils en parfait état grâce à nos services de maintenance informatique. De la suppression de virus à l’optimisation du système, nous garantissons des machines sûres, rapides et fiables."
+        },
+        {
+          "id": 2,
+          "Icon": "TbNetwork",
+          "title": "INSTALLATION DE RÉSEAUX",
+          "description": "Nous concevons et installons des systèmes réseau efficaces et sécurisés pour les maisons et les entreprises. Qu’ils soient câblés ou sans fil, nos réseaux sont conçus pour la vitesse, la stabilité et l’évolution future."
+        }
+      ],
+      [
+        {
+          "id": 3,
+          "Icon": "FaRegLightbulb",
+          "title": "INSTALLATION ÉLECTRIQUE",
+          "description": "Nos électriciens certifiés s’occupent de tous types d’installations électriques – de l’éclairage aux prises, en passant par les systèmes de câblage complets. Nous assurons un travail sûr et conforme aux normes, pour les nouvelles constructions ou les rénovations."
+        },
+        {
+          "id": 4,
+          "Icon": "TbShoppingCartBolt",
+          "title": "FOURNITURES ÉLECTRIQUES",
+          "description": "Nous fournissons des composants et accessoires électriques de haute qualité. Que vous soyez un entrepreneur ou un passionné de bricolage, vous trouverez tout ce qu’il vous faut – des câbles aux disjoncteurs – à des prix compétitifs."
+        }
+      ]
+    ]
+  },
+  "ContactComponent": {
+    "title": "Contactez-nous",
+    "description": "Votre satisfaction est notre priorité, c’est pourquoi nous vous plaçons au centre de toutes nos actions. Nos coordonnées sont toujours disponibles pour recevoir vos demandes.",
+    "description1": "Vous comptez pour nous. Chez Electrica, il y a toujours quelque chose pour chacun ! Contactez-moi maintenant pour réserver un service ou acheter un produit.",
+    "contactBtn": "Réserver un service",
+    "Address": "Adresse",
+    "Phone": "Téléphone"
+  }
+}
