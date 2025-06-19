@@ -31,24 +31,30 @@ const Navbar = () => {
               : "hidden lg:flex gap-4"
           }`}
         >
-          <Link
-            href="/"
-            className="font-bold lg:font-sans text-blue-950 lg:text-white"
-          >
-            {t("home")}
-          </Link>
-          <Link
-            href="/about"
-            className="font-bold lg:font-sans text-blue-950 lg:text-white"
-          >
-            {t("about")}
-          </Link>
-          <Link
-            href="/contact"
-            className="font-bold lg:font-sans text-blue-950 lg:text-white"
-          >
-            {t("contact")}
-          </Link>
+          <li onClick={() => setOpen(false)}>
+            <Link
+              href="/"
+              className="font-bold lg:font-sans text-blue-950 lg:text-white"
+            >
+              {t("home")}
+            </Link>
+          </li>
+          <li onClick={() => setOpen(false)}>
+            <Link
+              href="/about"
+              className="font-bold lg:font-sans text-blue-950 lg:text-white"
+            >
+              {t("about")}
+            </Link>
+          </li>
+          <li onClick={() => setOpen(false)}>
+            <Link
+              href="/contact"
+              className="font-bold lg:font-sans text-blue-950 lg:text-white"
+            >
+              {t("contact")}
+            </Link>
+          </li>
           <button
             className="flex items-center justify-center lg:hidden absolute top-10 right-10"
             onClick={handleOpen}
