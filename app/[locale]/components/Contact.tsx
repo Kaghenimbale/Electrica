@@ -17,62 +17,61 @@ const Contact = () => {
 
   const handleCollapse = (id: number) => {
     if (isOpen.includes(id)) {
-      const openCopy = isOpen.filter((element) => element !== id);
-      setOpen(openCopy);
+      setOpen(isOpen.filter((element) => element !== id));
     } else {
-      const openCopy = [...isOpen];
-      openCopy.push(id);
-      setOpen(openCopy);
+      setOpen([...isOpen, id]);
     }
   };
+
   return (
-    <div className="bg-gray-200">
-      <div className="w-full lg:w-[70vw] mx-auto p-4 lg:p-10">
-        <div className="grid grid-cols-1 xl:grid-cols-2 ">
+    <section className="bg-gray-100 py-16">
+      <div className="w-full lg:w-[70vw] mx-auto px-4 lg:px-0">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12">
+          {/* Contact Form */}
           <Form />
-          <div className="flex flex-col gap-4">
-            <h2 className="text-red-700 text-2xl flex gap-1 items-center">
-              <MdEngineering />
+
+          {/* Capabilities Accordion */}
+          <div className="flex flex-col gap-6">
+            <h2 className="text-red-600 text-2xl flex items-center gap-2 font-semibold">
+              <MdEngineering className="text-3xl" />
               {t("title")}
             </h2>
-            <p className="text-4xl font-bold lg:w-[40rem]">{t("service")}</p>
-            <span>{t("description")}</span>
-            <div>
-              <div className="w-full lg:w-[35rem] flex flex-col gap-3 h-auto lg:h-[22rem]">
-                {capabilities.map((capabilitie) => {
-                  return (
-                    <div key={capabilitie.id} className="">
-                      <button
-                        onClick={() => handleCollapse(capabilitie.id)}
-                        className="flex w-[100%] gap-4 items-center justify-between font-semibold bg-black text-white p-3"
-                      >
-                        {capabilitie.title}
-                        {isOpen.includes(capabilitie.id) ? (
-                          <FaArrowDown />
-                        ) : (
-                          <FaArrowRight />
-                        )}
-                      </button>
-                      <div
-                        className={`${
-                          isOpen.includes(capabilitie.id)
-                            ? "block"
-                            : "bg-white hidden"
-                        }`}
-                      >
-                        <p className="p-3 text-gray-600 bg-white shadow-inner shadow-slate-300">
-                          {capabilitie.description}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+            <p className="text-3xl lg:text-4xl font-bold lg:w-[40rem] leading-snug">
+              {t("service")}
+            </p>
+            <span className="text-gray-700">{t("description")}</span>
+
+            <div className="flex flex-col gap-3 mt-6">
+              {capabilities.map((capabilitie) => (
+                <div key={capabilitie.id} className="w-full">
+                  <button
+                    onClick={() => handleCollapse(capabilitie.id)}
+                    className="flex w-full justify-between items-center font-semibold bg-black text-white p-3 rounded-lg shadow-md transition-colors"
+                  >
+                    {capabilitie.title}
+                    {isOpen.includes(capabilitie.id) ? (
+                      <FaArrowDown className="text-xl" />
+                    ) : (
+                      <FaArrowRight className="text-xl" />
+                    )}
+                  </button>
+
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ${
+                      isOpen.includes(capabilitie.id) ? "max-h-96" : "max-h-0"
+                    }`}
+                  >
+                    <p className="p-4 text-gray-700 bg-white shadow-inner rounded-b-lg">
+                      {capabilitie.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
