@@ -1,5 +1,3 @@
-"use client";
-
 import { useTranslations } from "next-intl";
 import React, { useState } from "react";
 
@@ -36,27 +34,27 @@ const Form = () => {
       Message: "",
     });
   };
-
   return (
-    <div className="w-full h-fit lg:w-[25rem] bg-red-700 flex justify-center p-8">
+    <div className="w-full h-fit lg:w-[25rem] bg-red-700 flex justify-center py-10">
       <form
-        className="flex flex-col items-center gap-4 w-full"
+        className="flex flex-col items-end gap-4"
+        action=""
+        method="post"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-2xl font-bold text-white mb-4 text-center">
+        <h2 className="flex justify-center w-full font-bold text-2xl text-white">
           {t("message")}
         </h2>
-
-        {/* Grid inputs */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <input
             type="text"
             name="Firstname"
             value={formData.Firstname}
             placeholder={t("form.Name")}
             required
+            id=""
+            className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
             onChange={handleChange}
-            className="w-full h-12 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
           />
           <input
             type="text"
@@ -64,8 +62,9 @@ const Form = () => {
             value={formData.Lastname}
             placeholder={t("form.Firstname")}
             required
+            id=""
+            className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
             onChange={handleChange}
-            className="w-full h-12 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
           />
           <input
             type="email"
@@ -73,17 +72,19 @@ const Form = () => {
             value={formData.Email}
             placeholder={t("form.Email")}
             required
+            id=""
+            className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
             onChange={handleChange}
-            className="w-full h-12 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
           />
           <input
             type="tel"
-            name="Phone"
+            name={t("form.Name")}
             value={formData.Phone}
             placeholder={t("form.Phone")}
             required
+            id=""
+            className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
             onChange={handleChange}
-            className="w-full h-12 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
           />
           <input
             type="text"
@@ -91,8 +92,9 @@ const Form = () => {
             value={formData.Company}
             placeholder={t("form.Company")}
             required
+            id=""
+            className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
             onChange={handleChange}
-            className="w-full h-12 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
           />
           <input
             type="text"
@@ -100,36 +102,33 @@ const Form = () => {
             value={formData.Address}
             placeholder={t("form.Address")}
             required
+            id=""
+            className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
             onChange={handleChange}
-            className="w-full h-12 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
           />
         </div>
 
-        {/* Range slider */}
         <input
           type="range"
           name="Range"
-          value={formData.Range}
           required
+          value={formData.Range}
+          id=""
+          className="w-[20rem] lg:w-[20rem] h-[40px] p-2"
           onChange={handleChange}
-          className="w-full h-2 mt-4 rounded-full accent-red-600"
         />
 
-        {/* Message */}
         <textarea
           name="Message"
           value={formData.Message}
           placeholder="Message"
           required
+          className="w-[20rem] lg:w-[21rem] h-[150px] lg:h-[80px] p-2 border-2"
           onChange={handleChange}
-          className="w-full h-32 lg:h-24 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
+          id=""
         ></textarea>
 
-        {/* Submit */}
-        <button
-          type="submit"
-          className="w-full h-12 bg-black text-white font-semibold rounded-md hover:bg-gray-800 transition-colors"
-        >
+        <button className="w-full h-[40px] bg-black text-white" type="submit">
           {t("form.Submit")}
         </button>
       </form>

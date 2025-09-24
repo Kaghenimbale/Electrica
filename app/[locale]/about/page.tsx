@@ -11,7 +11,7 @@ import { useTranslations } from "next-intl";
 
 const Page = () => {
   const t = useTranslations("AboutComponent");
-  const [expandedIds, setExpandedIds] = useState<number[]>([]);
+  const [expandedId, setExpandedId] = useState<number | null>(null);
 
   const iconMap: Record<number, React.ElementType> = {
     1: FaComputer,
@@ -32,80 +32,69 @@ const Page = () => {
       Icon: iconMap[data.id],
     }))
   );
-
   const handleDisplayMore = (id: number) => {
-    setExpandedIds((prev) =>
-      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
-    );
+    console.log("clicked id", id);
+    setExpandedId((prev) => (prev === id ? null : id));
   };
-
   return (
-    <section className="mt-20 px-6 lg:px-10 lg:w-[70vw] mx-auto flex flex-col gap-16 pb-16">
-      {/* Hero Section */}
-      <div className="bg-gray-100 py-12 flex flex-col items-center gap-6 rounded-lg shadow-md">
-        <h2 className="text-4xl font-bold text-center text-gray-900">
-          {t("title")}
-        </h2>
-        <p className="text-center text-gray-600 lg:w-2/3">{t("description")}</p>
+    <div className="mt-[5rem] px-10 lg:w-[70vw] mx-auto flex flex-col gap-10 pb-10">
+      <div className="bg-gray-200 py-8 flex flex-col items-center gap-10">
+        <h2 className="text-4xl font-bold text-center">{t("title")}</h2>
+        <p className="text-center text-gray-500 w-[60%]">{t("description")}</p>
       </div>
 
-      {/* Intro + Services List */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        <Image
-          src={coffret}
-          alt="coffret"
-          className="rounded-lg shadow-lg w-full lg:w-[28rem]"
-        />
-        <div className="flex flex-col gap-6">
-          <h2 className="text-3xl font-bold text-gray-900">{t("title1")}</h2>
-          <p className="text-gray-600">{t("description1")}</p>
+      <div className="py-10 grid grid-cols-1 lg:grid-cols-2">
+        <Image className="w-[25rem]" src={coffret} alt="coffret" />
+        <div className="flex flex-col gap-5">
+          <h2 className="text-4xl font-bold flex">{t("title1")}</h2>
 
-          <ul className="flex flex-col gap-3">
-            {[t("service1"), t("service2"), t("service3"), t("service4")].map(
-              (service, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-gray-700">
-                  <FaCheckCircle className="text-red-600 text-xl flex-shrink-0" />
-                  <span>{service}</span>
-                </li>
-              )
-            )}
+          <p className="text-gray-500">{t("description1")}</p>
+          <ul className="flex flex-col gap-4">
+            <li className="flex gap-4 items-center">
+              <FaCheckCircle className="text-red-700" />
+              <p>{t("service1")}</p>
+            </li>
+            <li className="flex gap-4 items-center">
+              <FaCheckCircle className="text-red-700" />
+              <p>{t("service2")}</p>
+            </li>
+            <li className="flex gap-4 items-center">
+              <FaCheckCircle className="text-red-700" />
+              <p>{t("service3")}</p>
+            </li>
+            <li className="flex gap-4 items-center">
+              <FaCheckCircle className="text-red-700" />
+              <p>{t("service4")}</p>
+            </li>
           </ul>
 
-          <button className="self-start bg-red-700 text-white px-6 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-white hover:text-red-700 hover:border hover:border-red-700">
+          <button className="bg-red-700 text-white p-3 w-fit rounded-md transition-all delay-100 hover:bg-white hover:text-red-700 hover:border hover:border-red-700">
             {t("btntext")}
           </button>
         </div>
       </div>
 
-      {/* Services Grid */}
-      <div className="flex flex-col gap-12">
-        <h2 className="text-4xl font-bold text-center text-gray-900">
+      <div className="flex flex-col gap-10 lg:h-[30rem] h-auto justify-center">
+        <h2 className="text-4xl font-bold flex gap-2 justify-center">
           {t("service")}
         </h2>
-
-        <div className="flex flex-col lg:flex-row justify-center gap-12 items-start">
-          {/* Left Column */}
-          <div className="flex flex-col gap-6 flex-1">
+        <div className="flex flex-col lg:flex-row justify-center gap-10">
+          <div className="flex flex-col justify-between gap-4">
             {datas[0].map((data) => {
-              const isExpanded = expandedIds.includes(data.id);
-              const shortText = data.description.slice(0, 80);
+              const isExpanded = expandedId === data.id;
+              const shortText = data.description.slice(0, 60);
               return (
-                <div
-                  key={data.id}
-                  className="flex gap-4 items-start bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-300"
-                >
-                  <data.Icon className="text-red-700 text-5xl p-3 bg-red-100 rounded-full flex-shrink-0" />
-                  <div className="flex flex-col w-full">
-                    <h3 className="font-bold text-gray-900">{data.title}</h3>
-                    <p
-                      className={`text-gray-600 transition-all duration-300 ease-in-out overflow-hidden ${
-                        isExpanded ? "max-h-96" : "max-h-16"
-                      }`}
-                    >
+                <div key={data.id} className="flex gap-4">
+                  <div>
+                    <data.Icon className="text-white text-7xl p-4 font-thin bg-red-700" />
+                  </div>
+                  <div className="flex flex-col w-[14rem]">
+                    <h2 className="font-bold">{data.title}</h2>
+                    <p className="text-gray-500 lg:w-[15rem]">
                       {isExpanded ? data.description : `${shortText}... `}
                       <button
                         onClick={() => handleDisplayMore(data.id)}
-                        className="text-blue-500 ml-1 font-semibold hover:underline"
+                        className="text-blue-500"
                       >
                         {isExpanded ? "less" : "more"}
                       </button>
@@ -116,37 +105,26 @@ const Page = () => {
             })}
           </div>
 
-          {/* Center Image */}
-          <div className="flex justify-center flex-shrink-0">
-            <Image
-              src={imageLight}
-              alt="light image"
-              className="w-full lg:w-[28rem] rounded-lg shadow-lg"
-            />
+          <div>
+            <Image src={imageLight} alt="image Light" className="w-[25rem]" />
           </div>
 
-          {/* Right Column */}
-          <div className="flex flex-col gap-6 flex-1">
+          <div className="flex flex-col justify-between gap-4">
             {datas[1].map((data) => {
-              const isExpanded = expandedIds.includes(data.id);
-              const shortText = data.description.slice(0, 80);
+              const isExpanded = expandedId === data.id;
+              const shortText = data.description.slice(0, 60);
               return (
-                <div
-                  key={data.id}
-                  className="flex gap-4 items-start bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-300"
-                >
-                  <data.Icon className="text-red-700 text-5xl p-3 bg-red-100 rounded-full flex-shrink-0" />
-                  <div className="flex flex-col w-full">
-                    <h3 className="font-bold text-gray-900">{data.title}</h3>
-                    <p
-                      className={`text-gray-600 transition-all duration-300 ease-in-out overflow-hidden ${
-                        isExpanded ? "max-h-96" : "max-h-16"
-                      }`}
-                    >
+                <div key={data.id} className="flex gap-4">
+                  <div>
+                    <data.Icon className="text-white text-7xl p-4 font-thin bg-red-700" />
+                  </div>
+                  <div className="flex flex-col w-[14rem]">
+                    <h2 className="font-bold">{data.title}</h2>
+                    <p className="text-gray-500 lg:w-[15rem]">
                       {isExpanded ? data.description : `${shortText}... `}
                       <button
                         onClick={() => handleDisplayMore(data.id)}
-                        className="text-blue-500 ml-1 font-semibold hover:underline"
+                        className="text-blue-500"
                       >
                         {isExpanded ? "less" : "more"}
                       </button>
@@ -158,7 +136,7 @@ const Page = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

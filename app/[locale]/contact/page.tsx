@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
@@ -11,89 +10,82 @@ import { useTranslations } from "next-intl";
 const Page = () => {
   const t = useTranslations("ContactComponent");
   const [isOpen, setOpen] = useState(false);
-
-  const handleToggle = () => setOpen((prev) => !prev);
-
-  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if ((e.target as HTMLElement).id === "backdrop") {
-      setOpen(false);
-    }
+  const handleClick = () => {
+    setOpen((prev) => !prev);
   };
 
+  const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
+    if ((e.target as HTMLElement).id === "wrapper") {
+      setOpen((prev) => !prev);
+    }
+  };
   return (
-    <section className="mt-[5rem] w-[90%] lg:w-[70vw] mx-auto py-12 flex flex-col gap-16">
-      {/* Contact Info & Button */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        {/* Left Info */}
-        <div className="flex flex-col gap-12">
-          <h2 className="text-4xl font-bold text-gray-900">{t("title")}</h2>
-          <div className="flex flex-col gap-6 lg:w-[32rem]">
-            <p className="text-gray-600">{t("description")}</p>
-            <p className="text-gray-600">{t("description1")}</p>
+    <div className="mt-[5rem] w-[70vw] mx-auto py-10 ">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <div className="flex flex-col gap-16">
+          <h2 className="text-4xl font-bold flex">{t("title")}</h2>
+          <div className="flex flex-col gap-8 lg:w-[30rem]">
+            <p className="text-gray-500">{t("description")}</p>
+
+            <p className="text-gray-500">{t("description1")}</p>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-6 justify-between lg:w-[42rem]">
-            {/* Address */}
-            <div className="flex flex-col items-start gap-2">
-              <FaLocationDot className="text-red-700 text-4xl w-[60px] h-[60px] p-2 rounded-lg border border-gray-300 bg-red-50" />
+          <div className="flex flex-col lg:flex-row gap-4 justify-between lg:w-[40rem]">
+            <div className="flex flex-col gap-2">
+              <FaLocationDot className="text-4xl border border-gray-500 w-[60px] h-[60px] p-2 rounded-lg text-gray-500" />
               <div>
-                <p className="font-semibold text-gray-900">{t("Address")}:</p>
-                <p className="text-gray-600">
+                <p className="font-bold">{t("Address")}:</p>
+                <p className="text-gray-500">
                   Goma, Quartier Himbi <br /> Av du Lac N°59
                 </p>
               </div>
             </div>
 
-            {/* Email */}
-            <div className="flex flex-col items-start gap-2">
-              <MdEmail className="text-red-700 text-4xl w-[60px] h-[60px] p-2 rounded-lg border border-gray-300 bg-red-50" />
+            <div className="flex flex-col gap-2">
+              <MdEmail className="text-4xl border border-gray-500 w-[60px] h-[60px] p-2 rounded-lg text-gray-500" />
               <div>
-                <p className="font-semibold text-gray-900">Email:</p>
-                <p className="text-gray-600">kaghenimbale@gmail.com</p>
+                <p className="font-bold">Email:</p>
+                <p className="text-gray-500">kaghenimbale@gmail.com</p>
               </div>
             </div>
 
-            {/* Phone */}
-            <div className="flex flex-col items-start gap-2">
-              <IoIosCall className="text-red-700 text-4xl w-[60px] h-[60px] p-2 rounded-lg border border-gray-300 bg-red-50" />
+            <div className="flex flex-col gap-2">
+              <IoIosCall className="text-4xl border border-gray-500 w-[60px] h-[60px] p-2 rounded-lg text-gray-500" />
               <div>
-                <p className="font-semibold text-gray-900">{t("Phone")}:</p>
-                <p className="text-gray-600">+243977813248</p>
+                <p className="font-bold">{t("Phone")}:</p>
+                <p className="text-gray-500">+243977813248</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right Button */}
-        <div className="flex justify-center lg:justify-end">
+        <div className="flex items-center justify-center">
           <button
-            onClick={handleToggle}
-            className="bg-red-700 text-white px-6 py-3 rounded-md font-semibold flex items-center gap-2 hover:bg-white hover:text-red-700 hover:border hover:border-red-700 transition-all duration-300"
+            className="bg-red-700 text-white p-3 w-fit rounded-md transition-all delay-100 hover:bg-white hover:text-red-700 hover:border hover:border-red-700 flex gap-2 items-center"
+            onClick={handleClick}
           >
             {t("contactBtn")} <FaAngleRight />
           </button>
         </div>
       </div>
-
-      {/* Modal Form */}
-      {isOpen && (
+      {isOpen ? (
         <div
-          id="backdrop"
-          onClick={handleBackdropClick}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4"
+          id="wrapper"
+          onClick={handleClose}
+          className="absolute w-[100%] h-[100%] backdrop-blur-md top-0 left-0 z-10 flex items-center justify-center"
         >
-          <div className="relative w-full max-w-3xl bg-white rounded-lg shadow-lg overflow-hidden p-6">
-            <Form />
-            <button
-              onClick={handleToggle}
-              className="absolute top-4 right-4 flex items-center justify-center text-red-700 text-4xl hover:text-red-900 transition-colors"
-            >
-              <IoMdCloseCircle />
-            </button>
-          </div>
+          <Form />
+          <button
+            className="flex items-center justify-center absolute top-10 right-10"
+            onClick={handleClick}
+          >
+            <IoMdCloseCircle className="font-extrabold text-5xl text-red-700" />
+          </button>
         </div>
+      ) : (
+        ""
       )}
-    </section>
+    </div>
   );
 };
 

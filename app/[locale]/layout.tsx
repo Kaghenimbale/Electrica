@@ -1,6 +1,6 @@
-import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import "./globals.css";
 import Navbar from "./Navbar";
 import Footer from "./components/Footer";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
