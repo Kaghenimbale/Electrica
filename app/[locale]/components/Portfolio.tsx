@@ -7,36 +7,39 @@ import { useTranslations } from "next-intl";
 
 const Portfolio = () => {
   const t = useTranslations("HomeComponents.portfolio");
+  const engineers = [Engineer1, Engineer2, Engineer3];
+
   return (
-    <div className="w-full">
-      <div className="w-full lg:w-[70vw] mx-auto flex flex-col items-center py-10 gap-4">
-        <h2 className="text-red-700 text-2xl flex gap-1 items-center">
-          <MdEngineering />
+    <section className="w-full py-16 bg-gray-50">
+      <div className="w-full lg:w-[70vw] mx-auto flex flex-col items-center gap-8 px-4">
+        {/* Header */}
+        <h2 className="text-red-600 text-2xl flex items-center gap-2 font-semibold">
+          <MdEngineering className="text-3xl" />
           {t("title")}
         </h2>
-        <p className="text-4xl lg:text-5xl font-bold lg:w-[50rem] text-center">
+        <p className="text-3xl lg:text-5xl font-extrabold text-center lg:w-[50rem] leading-snug">
           {t("description")}
         </p>
 
-        <div className="flex gap-6 flex-col lg:flex-row">
-          <Image
-            src={Engineer1}
-            className="w-[20rem] object-cover"
-            alt="Engineer"
-          />
-          <Image
-            src={Engineer2}
-            className="w-[20rem] object-cover"
-            alt="Engineer"
-          />
-          <Image
-            src={Engineer3}
-            className="w-[20rem] object-cover"
-            alt="Engineer"
-          />
+        {/* Portfolio Images */}
+        <div className="flex flex-col lg:flex-row gap-6 w-full justify-center">
+          {engineers.map((img, idx) => (
+            <div
+              key={idx}
+              className="w-full sm:w-[18rem] lg:w-[20rem] rounded-xl overflow-hidden shadow-lg 
+                 transform transition-transform duration-500 ease-in-out 
+                 hover:scale-105 hover:shadow-2xl"
+            >
+              <Image
+                src={img}
+                alt={`Engineer ${idx + 1}`}
+                className="object-cover w-full h-64"
+              />
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

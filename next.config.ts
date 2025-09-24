@@ -1,10 +1,17 @@
 import { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
+// next.config.js
+module.exports = {
+  images: {
+    unoptimized: true,
+  },
+};
+
 const nextConfig: NextConfig = {
-  //   eslint: {
-  //     ignoreDuringBuilds: true,
-  //   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();

@@ -5,70 +5,63 @@ import img2 from "../../../public/worker-red-uniform-operating-control-panel-ind
 import img3 from "../../../public/electrical-engineer_762625-3025.avif";
 import { TbNetwork } from "react-icons/tb";
 import { FaRegLightbulb } from "react-icons/fa";
-import { FaComputer } from "react-icons/fa6";
-import { FaPlay } from "react-icons/fa";
+import { FaComputer, FaPlay } from "react-icons/fa6";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 const Offer = () => {
   const t = useTranslations("HomeComponents.Offer");
+
+  const services = [
+    { img: img1, icon: <FaComputer />, title: t("services.first") },
+    { img: img2, icon: <TbNetwork />, title: t("services.second") },
+    { img: img3, icon: <FaRegLightbulb />, title: t("services.third") },
+  ];
+
   return (
-    <div className="w-full lg:w-[70vw] bg-slate-950 mx-auto flex flex-col items-center gap-4 lg:py-10">
+    <div className="w-full lg:w-[70vw] bg-slate-950 mx-auto flex flex-col items-center gap-20 lg:py-10 px-4">
+      {/* Header */}
       <div className="flex flex-col items-center gap-4">
-        <h2 className="text-red-700 text-2xl flex gap-1 items-center">
-          <MdEngineering />
+        <h2 className="text-red-600 text-2xl flex gap-2 items-center font-semibold">
+          <MdEngineering className="text-3xl" />
           {t("title")}
         </h2>
-        <p className="text-4xl lg:text-5xl font-bold lg:w-[50rem] text-center text-white">
+        <p className="text-3xl lg:text-5xl font-extrabold text-center text-white lg:w-[50rem] leading-snug">
           {t("description")}
         </p>
 
-        <div className="flex gap-10 flex-col lg:flex-row">
-          <div>
-            <Image
-              src={img1}
-              width={300}
-              className="h-[170px] object-cover"
-              alt="img1"
-            />
-            <div className="bg-white flex flex-col relative -top-6 left-6 p-2 border-t-4 border-red-600">
-              <FaComputer className="text-white text-7xl p-4 font-thin bg-red-700 relative -top-6 left-3" />
-              <p className="font-medium">{t("services.first")}</p>
+        {/* Services */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 w-full">
+          {services.map((service, index) => (
+            <div key={index} className="relative group">
+              <Image
+                src={service.img}
+                alt={`service-${index}`}
+                className="w-full h-[180px] object-cover rounded-xl shadow-lg"
+              />
+              <div className="absolute bottom-0 left-4 right-4 transform translate-y-6 group-hover:translate-y-4 transition-all">
+                <div className="bg-white rounded-xl shadow-md p-4 border-t-4 border-red-600">
+                  <div className="bg-red-600 w-14 h-14 flex items-center justify-center rounded-lg -mt-10 shadow-md text-white text-3xl">
+                    {service.icon}
+                  </div>
+                  <p className="font-semibold text-gray-800 mt-4 text-center">
+                    {service.title}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="">
-            <Image
-              src={img2}
-              width={300}
-              className="h-[170px] object-cover"
-              alt="img2"
-            />
-            <div className="bg-white flex flex-col relative -top-6 left-6 p-2 border-t-4 border-red-600">
-              <TbNetwork className="text-white text-7xl p-4 font-thin bg-red-700 relative -top-6 left-3" />
-              <p className="font-medium">{t("services.second")}</p>
-            </div>
-          </div>
-          <div>
-            <Image
-              src={img3}
-              width={300}
-              className="h-[170px] object-cover"
-              alt="img3"
-            />
-            <div className="bg-white flex flex-col relative -top-6 left-6 p-2 border-t-4 border-red-600">
-              <FaRegLightbulb className="text-white text-7xl p-4 font-thin bg-red-700 relative -top-6 left-3" />
-              <p className="font-medium">{t("services.third")}</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-      <div className="bg-red-600 w-full grid grid-cols-1 p-4 gap-4 lg:gap-0 lg:p-40 lg:grid-cols-2">
-        <p className="text-3xl font-bold w-[20rem] text-white border-l-8 border-white pl-5">
+
+      {/* Principle Section */}
+      <div className="bg-red-600 w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-8 px-6 py-16">
+        <p className="text-3xl font-bold text-white border-l-8 border-white pl-5 max-w-lg">
           {t("OurPrinciple")}
         </p>
-        <div className="offer flex items-center justify-center">
-          <button className="w-[80px] h-[80px] bg-white flex items-center justify-center rounded-full shadow-2xl shadow-white">
-            <FaPlay className="text-red-600 text-2xl" />
+        <div className="flex items-center justify-center">
+          <button className="w-20 h-20 lg:w-24 lg:h-24 bg-white flex items-center justify-center rounded-full shadow-lg hover:scale-105 transition-transform">
+            <FaPlay className="text-red-600 text-2xl lg:text-3xl" />
           </button>
         </div>
       </div>
