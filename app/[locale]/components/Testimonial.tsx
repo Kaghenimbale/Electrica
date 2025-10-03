@@ -41,7 +41,7 @@ const Testimonial = () => {
                 <MdStarRate className="text-yellow-500" />
                 <MdStarRate className="text-white" />
               </div>
-              <p className="text-gray-400">{testimonials[0].message}</p>
+              <p className="font-thin">{testimonials[0].message}</p>
               <h3 className="font-bold">Jean Mwamba</h3>
               <span className="text-red-600 font-bold">
                 {testimonials[0].satisfaction}
@@ -65,7 +65,7 @@ const Testimonial = () => {
                 <MdStarRate className="text-white" />
                 <MdStarRate className="text-white" />
               </div>
-              <p className="text-gray-400">{testimonials[1].message}</p>
+              <p className="font-thin">{testimonials[1].message}</p>
               <h3 className="font-bold">Alexandre Kabangu</h3>
               <span className="text-red-600 font-bold">
                 {testimonials[1].satisfaction}

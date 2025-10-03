@@ -33,7 +33,7 @@ const Page = () => {
     }))
   );
   const handleDisplayMore = (id: number) => {
-    console.log("clicked id", id);
+    // console.log("clicked id", id);
     setExpandedId((prev) => (prev === id ? null : id));
   };
   return (

@@ -34,7 +34,7 @@ const Navbar = () => {
           <li onClick={() => setOpen(false)}>
             <Link
               href="/"
-              className="font-bold lg:font-sans text-blue-950 lg:text-white"
+              className="font-thin lg:font-sans text-blue-950 lg:text-white text-xl"
             >
               {t("home")}
             </Link>
@@ -42,7 +42,7 @@ const Navbar = () => {
           <li onClick={() => setOpen(false)}>
             <Link
               href="/about"
-              className="font-bold lg:font-sans text-blue-950 lg:text-white"
+              className="font-thin lg:font-sans text-blue-950 lg:text-white text-xl"
             >
               {t("about")}
             </Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
           <li onClick={() => setOpen(false)}>
             <Link
               href="/contact"
-              className="font-bold lg:font-sans text-blue-950 lg:text-white"
+              className="font-thin lg:font-sans text-blue-950 lg:text-white text-xl"
             >
               {t("contact")}
             </Link>

@@ -14,15 +14,41 @@ const Form = () => {
     Message: "",
   });
 
+  const [loading, setLoading] = useState(false); // NEW
+  const [success, setSuccess] = useState<string | null>(null); // NEW
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
+    setLoading(true);
+    setSuccess(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setSuccess("✅ Your message has been sent!");
+      } else {
+        setSuccess("❌ Failed to send message.");
+      }
+    } catch (error) {
+      setSuccess("⚠️ Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
+
+    // reset form
     setFormData({
       Firstname: "",
       Lastname: "",
@@ -33,15 +59,15 @@ const Form = () => {
       Range: "",
       Message: "",
     });
+
+    setTimeout(() => {
+      setSuccess(null);
+    }, 3000);
   };
+
   return (
     <div className="w-full h-fit lg:w-[25rem] bg-red-700 flex justify-center py-10">
-      <form
-        className="flex flex-col items-end gap-4"
-        action=""
-        method="post"
-        onSubmit={handleSubmit}
-      >
+      <form className="flex flex-col items-end gap-4" onSubmit={handleSubmit}>
         <h2 className="flex justify-center w-full font-bold text-2xl text-white">
           {t("message")}
         </h2>
@@ -52,7 +78,6 @@ const Form = () => {
             value={formData.Firstname}
             placeholder={t("form.Name")}
             required
-            id=""
             className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
             onChange={handleChange}
           />
@@ -62,7 +87,6 @@ const Form = () => {
             value={formData.Lastname}
             placeholder={t("form.Firstname")}
             required
-            id=""
             className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
             onChange={handleChange}
           />
@@ -72,17 +96,15 @@ const Form = () => {
             value={formData.Email}
             placeholder={t("form.Email")}
             required
-            id=""
             className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
             onChange={handleChange}
           />
           <input
             type="tel"
-            name={t("form.Name")}
+            name="Phone"
             value={formData.Phone}
             placeholder={t("form.Phone")}
             required
-            id=""
             className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
             onChange={handleChange}
           />
@@ -92,7 +114,6 @@ const Form = () => {
             value={formData.Company}
             placeholder={t("form.Company")}
             required
-            id=""
             className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
             onChange={handleChange}
           />
@@ -102,7 +123,6 @@ const Form = () => {
             value={formData.Address}
             placeholder={t("form.Address")}
             required
-            id=""
             className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
             onChange={handleChange}
           />
@@ -113,7 +133,6 @@ const Form = () => {
           name="Range"
           required
           value={formData.Range}
-          id=""
           className="w-[20rem] lg:w-[20rem] h-[40px] p-2"
           onChange={handleChange}
         />
@@ -125,12 +144,25 @@ const Form = () => {
           required
           className="w-[20rem] lg:w-[21rem] h-[150px] lg:h-[80px] p-2 border-2"
           onChange={handleChange}
-          id=""
         ></textarea>
 
-        <button className="w-full h-[40px] bg-black text-white" type="submit">
-          {t("form.Submit")}
+        {/* Button with loading state */}
+        <button
+          className={`w-full h-[40px] bg-black text-white transition-all ${
+            loading ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-800"
+          }`}
+          type="submit"
+          disabled={loading}
+        >
+          {loading ? "⏳ Sending..." : t("form.Submit")}
         </button>
+
+        {/* Success / Error message */}
+        {success && (
+          <p className="w-full text-center text-white font-semibold mt-2 animate-fade-in">
+            {success}
+          </p>
+        )}
       </form>
     </div>
   );

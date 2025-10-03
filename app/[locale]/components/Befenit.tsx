@@ -17,22 +17,22 @@ const Befenit = () => {
 
         <h2 className="text-4xl font-bold lg:w-[25rem]">{t("question")}</h2>
 
-        <p className="lg:w-[25rem]">{t("description")}</p>
+        <p className="lg:w-[25rem] font-thin">{t("description")}</p>
 
         <div className="flex flex-col gap-4">
           <div className="flex gap-4 items-center">
             <BsArrowRightCircleFill className="text-red-600" />
-            <p className="w-full lg:w-[20rem]">{t("goals.first")}</p>
+            <p className="w-full lg:w-[20rem] font-thin">{t("goals.first")}</p>
           </div>
 
           <div className="flex gap-4 items-center">
             <BsArrowRightCircleFill className="text-red-600" />
-            <p className="w-full lg:w-[20rem]">{t("goals.second")}</p>
+            <p className="w-full lg:w-[20rem] font-thin">{t("goals.second")}</p>
           </div>
 
           <div className="flex gap-4 items-center">
             <BsArrowRightCircleFill className="text-red-600" />
-            <p className="w-full lg:w-[20rem]">{t("goals.third")}</p>
+            <p className="w-full lg:w-[20rem] font-thin">{t("goals.third")}</p>
           </div>
         </div>
       </div>

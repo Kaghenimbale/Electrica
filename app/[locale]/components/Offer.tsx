@@ -33,7 +33,7 @@ const Offer = () => {
             />
             <div className="bg-white flex flex-col relative -top-6 left-6 p-2 border-t-4 border-red-600">
               <FaComputer className="text-white text-7xl p-4 font-thin bg-red-700 relative -top-6 left-3" />
-              <p className="font-medium">{t("services.first")}</p>
+              <p className="font-thin">{t("services.first")}</p>
             </div>
           </div>
           <div className="">
@@ -45,7 +45,7 @@ const Offer = () => {
             />
             <div className="bg-white flex flex-col relative -top-6 left-6 p-2 border-t-4 border-red-600">
               <TbNetwork className="text-white text-7xl p-4 font-thin bg-red-700 relative -top-6 left-3" />
-              <p className="font-medium">{t("services.second")}</p>
+              <p className="font-thin">{t("services.second")}</p>
             </div>
           </div>
           <div>
@@ -57,7 +57,7 @@ const Offer = () => {
             />
             <div className="bg-white flex flex-col relative -top-6 left-6 p-2 border-t-4 border-red-600">
               <FaRegLightbulb className="text-white text-7xl p-4 font-thin bg-red-700 relative -top-6 left-3" />
-              <p className="font-medium">{t("services.third")}</p>
+              <p className="font-thin">{t("services.third")}</p>
             </div>
           </div>
         </div>
