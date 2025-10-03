@@ -11,18 +11,23 @@ import { useTranslations } from "next-intl";
 
 const Objectives = () => {
   const t = useTranslations("HomeComponents.Objectives");
-  const [status, setStatus] = useState("about");
-  const [description, setDescription] = useState(
-    "With over four decades of experience,we deliver tailored logistics solutions to large-scale enterprises across the country. Our expertise ensure reliable, efficient service for specific market needs."
-  );
   const datas = t.raw("data") as {
     title: string;
     description: string;
   }[];
+
+  // Initialize with the first button active
+  const [status, setStatus] = useState(datas[0]?.title || "");
+  const [description, setDescription] = useState(
+    datas[0]?.description ||
+      "With over four decades of experience,we deliver tailored logistics solutions to large-scale enterprises across the country. Our expertise ensure reliable, efficient service for specific market needs."
+  );
+
   const handleClick = (title: string, description: string) => {
     setStatus(title);
     setDescription(description);
   };
+
   return (
     <div className="w-full lg:w-[70vw] mx-auto p-10 grid grid-cols-1 gap-4 lg:grid-cols-2">
       <div className="flex flex-col gap-8">
@@ -62,22 +67,20 @@ const Objectives = () => {
             alt="imageIndustry"
           />
           <div className="flex gap-4 relative -top-10">
-            {datas.map((data, index) => {
-              return (
-                <button
-                  type="button"
-                  key={index}
-                  className={`font-thin ${
-                    status === data.title
-                      ? "bg-red-700 text-white p-2 w-[10rem]"
-                      : "bg-white text-black p-2 w-[10rem]"
-                  }`}
-                  onClick={() => handleClick(data.title, data.description)}
-                >
-                  {data.title}
-                </button>
-              );
-            })}
+            {datas.map((data, index) => (
+              <button
+                key={index}
+                type="button"
+                className={`font-thin transition-colors duration-300 ${
+                  status === data.title
+                    ? "bg-red-700 text-white font-light p-2 w-[10rem]"
+                    : "bg-white text-black p-2 w-[10rem] hover:bg-red-100"
+                }`}
+                onClick={() => handleClick(data.title, data.description)}
+              >
+                {data.title}
+              </button>
+            ))}
           </div>
         </div>
         <p className="lg:h-[5rem] font-thin">{description}</p>

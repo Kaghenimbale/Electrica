@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import React, { useState } from "react";
 
@@ -14,14 +16,12 @@ const Form = () => {
     Message: "",
   });
 
-  const [loading, setLoading] = useState(false); // NEW
-  const [success, setSuccess] = useState<string | null>(null); // NEW
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  ) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,43 +34,37 @@ const Form = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       const result = await res.json();
-
-      if (result.success) {
-        setSuccess("✅ Your message has been sent!");
-      } else {
-        setSuccess("❌ Failed to send message.");
-      }
+      setSuccess(
+        result.success
+          ? "✅ Your message has been sent!"
+          : "❌ Failed to send message."
+      );
     } catch (error) {
       setSuccess("⚠️ Something went wrong.");
     } finally {
       setLoading(false);
+      setFormData({
+        Firstname: "",
+        Lastname: "",
+        Email: "",
+        Phone: "",
+        Company: "",
+        Address: "",
+        Range: "",
+        Message: "",
+      });
+      setTimeout(() => setSuccess(null), 3000);
     }
-
-    // reset form
-    setFormData({
-      Firstname: "",
-      Lastname: "",
-      Email: "",
-      Phone: "",
-      Company: "",
-      Address: "",
-      Range: "",
-      Message: "",
-    });
-
-    setTimeout(() => {
-      setSuccess(null);
-    }, 3000);
   };
 
   return (
-    <div className="w-full h-fit lg:w-[25rem] bg-red-700 flex justify-center py-10">
-      <form className="flex flex-col items-end gap-4" onSubmit={handleSubmit}>
-        <h2 className="flex justify-center w-full font-bold text-2xl text-white">
+    <div className="w-full lg:w-[28rem] bg-red-700 rounded-xl p-8 shadow-lg mx-auto">
+      <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+        <h2 className="text-center text-white text-2xl font-bold mb-4">
           {t("message")}
         </h2>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <input
             type="text"
@@ -78,7 +72,7 @@ const Form = () => {
             value={formData.Firstname}
             placeholder={t("form.Name")}
             required
-            className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
+            className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
             onChange={handleChange}
           />
           <input
@@ -87,7 +81,7 @@ const Form = () => {
             value={formData.Lastname}
             placeholder={t("form.Firstname")}
             required
-            className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
+            className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
             onChange={handleChange}
           />
           <input
@@ -96,7 +90,7 @@ const Form = () => {
             value={formData.Email}
             placeholder={t("form.Email")}
             required
-            className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
+            className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
             onChange={handleChange}
           />
           <input
@@ -105,7 +99,7 @@ const Form = () => {
             value={formData.Phone}
             placeholder={t("form.Phone")}
             required
-            className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
+            className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
             onChange={handleChange}
           />
           <input
@@ -114,7 +108,7 @@ const Form = () => {
             value={formData.Company}
             placeholder={t("form.Company")}
             required
-            className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
+            className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
             onChange={handleChange}
           />
           <input
@@ -123,7 +117,7 @@ const Form = () => {
             value={formData.Address}
             placeholder={t("form.Address")}
             required
-            className="w-[20rem] lg:w-[10rem] h-[50px] p-2"
+            className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"
             onChange={handleChange}
           />
         </div>
@@ -131,10 +125,10 @@ const Form = () => {
         <input
           type="range"
           name="Range"
-          required
           value={formData.Range}
-          className="w-[20rem] lg:w-[20rem] h-[40px] p-2"
+          required
           onChange={handleChange}
+          className="w-full h-3 accent-red-600 rounded-lg"
         />
 
         <textarea
@@ -142,24 +136,20 @@ const Form = () => {
           value={formData.Message}
           placeholder="Message"
           required
-          className="w-[20rem] lg:w-[21rem] h-[150px] lg:h-[80px] p-2 border-2"
           onChange={handleChange}
-        ></textarea>
+          className="w-full h-32 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600 resize-none"
+        />
 
-        {/* Button with loading state */}
         <button
-          className={`w-full h-[40px] bg-black text-white transition-all ${
-            loading ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-800"
-          }`}
           type="submit"
           disabled={loading}
+          className={`w-full p-3 rounded-md bg-black text-white font-semibold transition hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed`}
         >
           {loading ? "⏳ Sending..." : t("form.Submit")}
         </button>
 
-        {/* Success / Error message */}
         {success && (
-          <p className="w-full text-center text-white font-semibold mt-2 animate-fade-in">
+          <p className="text-center text-white font-medium mt-2 animate-fade-in">
             {success}
           </p>
         )}

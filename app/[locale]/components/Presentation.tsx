@@ -9,59 +9,82 @@ import { SiThunderstore } from "react-icons/si";
 const Presentation = () => {
   const t = useTranslations("HomeComponents.presentation");
   return (
-    <div className="w-full lg:w-[70vw] mx-auto grid grid-cols-1 gap-5 lg:gap-0 lg:grid-cols-2 px-10 py-32">
-      <div className="w-72 h-72 my-auto flex gap-3 items-center justify-center flex-col">
-        <SiThunderstore className="text-[10rem] text-red-700" />
-        <p className="text-4xl font-bold">ELECTRICA</p>
-        <span className="font-thin">{t("title3")}</span>
+    <section className="w-full lg:w-[70vw] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 px-6 md:px-10 py-20">
+      {/* Left Block */}
+      <div className="flex flex-col items-center justify-center text-center gap-4">
+        <SiThunderstore className="text-[6rem] md:text-[10rem] text-red-700 drop-shadow-lg" />
+        <p className="text-3xl md:text-4xl font-extrabold tracking-wide">
+          ELECTRICA
+        </p>
+        <span className="text-lg font-light text-gray-600">{t("title3")}</span>
       </div>
+
+      {/* Right Block */}
       <div className="flex flex-col gap-6">
-        <h2 className="text-red-700 text-2xl flex gap-1 items-center">
-          <MdEngineering />
+        {/* Section Title */}
+        <h2 className="text-red-700 text-xl md:text-2xl flex items-center gap-2 font-semibold">
+          <MdEngineering className="text-2xl" />
           {t("title")}
         </h2>
-        <p className="text-4xl lg:text-5xl font-bold">{t("title1")}</p>
-        <p className="text-red-700 text-2xl">{t("title2")}</p>
-        <span className="font-thin">{t("description")}</span>
 
-        <div className="flex flex-col lg:flex-row gap-4">
+        {/* Headline */}
+        <p className="text-3xl md:text-5xl font-bold leading-snug">
+          {t("title1")}
+        </p>
+
+        {/* Sub-headline */}
+        <p className="text-red-700 text-xl md:text-2xl font-medium">
+          {t("title2")}
+        </p>
+
+        {/* Description */}
+        <p className="text-gray-700 text-base md:text-lg font-light leading-relaxed">
+          {t("description")}
+        </p>
+
+        {/* CEO + Values */}
+        <div className="flex flex-col lg:flex-row gap-8 mt-6">
+          {/* CEO Card */}
           <div className="flex gap-4 items-center">
             <Image
-              className="rounded-full w-[60px] h-[70px]"
+              className="rounded-full w-[60px] h-[60px] object-cover shadow-md"
               src={chris}
               alt="CEO PHOTO"
             />
             <div>
               <a
-                href="kaghenimbale.vercel.com"
-                target="__blank"
-                className="font-bold"
+                href="https://kaghenimbale.vercel.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-slate-900 hover:text-red-700 transition-colors"
               >
                 KAGHENI Chris
               </a>
               <br />
-              <span className="font-thin italic">CEO, Electrica</span>
+              <span className="font-light italic text-gray-600">
+                CEO, Electrica
+              </span>
             </div>
           </div>
-          <div>
-            <ul>
-              <li className="font-thin flex gap-1 items-center">
-                <FaCircleRight />
-                {t("values.first")}
-              </li>
-              <li className="font-thin flex gap-1 items-center">
-                <FaCircleRight />
-                {t("values.second")}
-              </li>
-              <li className="font-thin flex gap-1 items-center">
-                <FaCircleRight />
-                {t("values.third")}
-              </li>
-            </ul>
-          </div>
+
+          {/* Values List */}
+          <ul className="space-y-2">
+            <li className="font-light flex gap-2 items-center text-gray-700">
+              <FaCircleRight className="text-red-600" />
+              {t("values.first")}
+            </li>
+            <li className="font-light flex gap-2 items-center text-gray-700">
+              <FaCircleRight className="text-red-600" />
+              {t("values.second")}
+            </li>
+            <li className="font-light flex gap-2 items-center text-gray-700">
+              <FaCircleRight className="text-red-600" />
+              {t("values.third")}
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
