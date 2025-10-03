@@ -36,7 +36,7 @@ const Contact = () => {
               {t("title")}
             </h2>
             <p className="text-4xl font-bold lg:w-[40rem]">{t("service")}</p>
-            <span>{t("description")}</span>
+            <span className="font-thin">{t("description")}</span>
             <div>
               <div className="w-full lg:w-[35rem] flex flex-col gap-3 h-auto lg:h-[22rem]">
                 {capabilities.map((capabilitie) => {

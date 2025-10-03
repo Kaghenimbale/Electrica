@@ -26,7 +26,7 @@ const Work = () => {
             <GiScrewdriver className="text-6xl" />
             <div className="flex flex-col gap-4">
               <h2 className="font-extrabold">{datas[0].title}</h2>
-              <p>{datas[0].description}</p>
+              <p className="font-thin">{datas[0].description}</p>
             </div>
             <div className="text-3xl font-extrabold bg-gray-700 w-[70px] h-[70px] flex items-center justify-center rounded-full">
               01
@@ -37,7 +37,7 @@ const Work = () => {
             <IoHammerOutline className="text-6xl" />
             <div className="flex flex-col gap-4">
               <h2 className="font-extrabold">{datas[1].title}</h2>
-              <p>{datas[1].description}</p>
+              <p className="font-thin">{datas[1].description}</p>
             </div>
             <div className="text-3xl font-extrabold bg-gray-700 w-[70px] h-[70px] flex items-center justify-center rounded-full">
               02
@@ -48,7 +48,7 @@ const Work = () => {
             <MdElectricMeter className="text-6xl" />
             <div className="flex flex-col gap-4">
               <h2 className="font-extrabold">{datas[2].title}</h2>
-              <p>{datas[2].description}</p>
+              <p className="font-thin">{datas[2].description}</p>
             </div>
             <div className="text-3xl font-extrabold bg-gray-700 w-[70px] h-[70px] flex items-center justify-center rounded-full">
               03

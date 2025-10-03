@@ -18,7 +18,7 @@ const Footer = () => {
             <Link href="/contact" className="text-2xl font-bold">
               {t("about")}
             </Link>
-            <p className="text-gray-400">{t("description")}</p>
+            <p className="font-thin">{t("description")}</p>
             <div className="flex gap-4">
               <Link href="http://" target="_blank">
                 <FaInstagram className="text-white hover:text-red-600 hover:cursor-pointer" />
@@ -100,7 +100,7 @@ const Footer = () => {
             Electrica
           </span>
           <div className="w-[1px] h-8px bg-slate-400"></div>
-          <p className="lg:text-xl whitespace-nowrap">{t("right")}</p>
+          <p className="whitespace-nowrap font-thin">{t("right")}</p>
           <div className="w-[1px] h-8px bg-slate-400"></div>
           <span className="text-red-600 font-bold">CHRIMK34</span>
         </footer>

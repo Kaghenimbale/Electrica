@@ -41,14 +41,14 @@ const Objectives = () => {
               <RiSecurePaymentFill className="text-red-600 text-5xl" />
               <div className="flex flex-col gap-3">
                 <p className="font-bold">{t("payment.title")}</p>
-                <span>{t("payment.description")}</span>
+                <span className="font-thin">{t("payment.description")}</span>
               </div>
             </div>
             <div className="flex gap-4">
               <GrUserWorker className="text-red-600 text-5xl" />
               <div className="flex flex-col gap-3">
                 <p className="font-bold">{t("workforce.title")}</p>
-                <span>{t("workforce.description")}</span>
+                <span className="font-thin">{t("workforce.description")}</span>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@ const Objectives = () => {
                 <button
                   type="button"
                   key={index}
-                  className={`${
+                  className={`font-thin ${
                     status === data.title
                       ? "bg-red-700 text-white p-2 w-[10rem]"
                       : "bg-white text-black p-2 w-[10rem]"
@@ -80,20 +80,20 @@ const Objectives = () => {
             })}
           </div>
         </div>
-        <p className="lg:h-[5rem]">{description}</p>
+        <p className="lg:h-[5rem] font-thin">{description}</p>
 
         <div className="flex flex-col gap-4">
           <div className="flex gap-2">
             <FaCheckCircle className="text-red-700" />
-            <p>{t("solutions.first")}</p>
+            <p className="font-thin">{t("solutions.first")}</p>
           </div>
           <div className="flex gap-2">
             <FaCheckCircle className="text-red-700" />
-            <p>{t("solutions.second")}</p>
+            <p className="font-thin">{t("solutions.second")}</p>
           </div>
           <div className="flex gap-2">
             <FaCheckCircle className="text-red-700" />
-            <p>{t("solutions.third")}</p>
+            <p className="font-thin">{t("solutions.third")}</p>
           </div>
         </div>
       </div>
