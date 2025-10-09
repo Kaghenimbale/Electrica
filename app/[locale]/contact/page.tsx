@@ -25,9 +25,9 @@ const Page = () => {
         <div className="flex flex-col gap-16">
           <h2 className="text-4xl font-bold flex">{t("title")}</h2>
           <div className="flex flex-col gap-8 lg:w-[30rem]">
-            <p className="text-gray-500">{t("description")}</p>
+            <p className="font-thin">{t("description")}</p>
 
-            <p className="text-gray-500">{t("description1")}</p>
+            <p className="font-thin">{t("description1")}</p>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-4 justify-between lg:w-[40rem]">

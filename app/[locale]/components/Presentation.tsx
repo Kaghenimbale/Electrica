@@ -12,8 +12,8 @@ const Presentation = () => {
     <section className="w-full lg:w-[70vw] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 px-6 md:px-10 py-20">
       {/* Left Block */}
       <div className="flex flex-col items-center justify-center text-center gap-4">
-        <SiThunderstore className="text-[6rem] md:text-[10rem] text-red-700 drop-shadow-lg" />
-        <p className="text-3xl md:text-4xl font-extrabold tracking-wide">
+        <SiThunderstore className="text-[6rem] md:text-[10rem] text-red-700 drop-shadow-lg shadow-red-600" />
+        <p className="text-3xl md:text-4xl font-extrabold tracking-wide shadow-2xl bg-gray-50 shadow-black">
           ELECTRICA
         </p>
         <span className="text-lg font-light text-gray-600">{t("title3")}</span>

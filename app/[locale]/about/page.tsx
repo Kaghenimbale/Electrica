@@ -40,7 +40,7 @@ const Page = () => {
     <div className="mt-[5rem] px-10 lg:w-[70vw] mx-auto flex flex-col gap-10 pb-10">
       <div className="bg-gray-200 py-8 flex flex-col items-center gap-10">
         <h2 className="text-4xl font-bold text-center">{t("title")}</h2>
-        <p className="text-center text-gray-500 w-[60%]">{t("description")}</p>
+        <p className="text-center w-[60%] font-thin">{t("description")}</p>
       </div>
 
       <div className="py-10 grid grid-cols-1 lg:grid-cols-2">
@@ -48,7 +48,7 @@ const Page = () => {
         <div className="flex flex-col gap-5">
           <h2 className="text-4xl font-bold flex">{t("title1")}</h2>
 
-          <p className="text-gray-500">{t("description1")}</p>
+          <p className="font-thin">{t("description1")}</p>
           <ul className="flex flex-col gap-4">
             <li className="flex gap-4 items-center">
               <FaCheckCircle className="text-red-700" />
@@ -90,7 +90,7 @@ const Page = () => {
                   </div>
                   <div className="flex flex-col w-[14rem]">
                     <h2 className="font-bold">{data.title}</h2>
-                    <p className="text-gray-500 lg:w-[15rem]">
+                    <p className="font-thin lg:w-[15rem]">
                       {isExpanded ? data.description : `${shortText}... `}
                       <button
                         onClick={() => handleDisplayMore(data.id)}
@@ -120,7 +120,7 @@ const Page = () => {
                   </div>
                   <div className="flex flex-col w-[14rem]">
                     <h2 className="font-bold">{data.title}</h2>
-                    <p className="text-gray-500 lg:w-[15rem]">
+                    <p className="font-thin lg:w-[15rem]">
                       {isExpanded ? data.description : `${shortText}... `}
                       <button
                         onClick={() => handleDisplayMore(data.id)}
