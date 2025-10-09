@@ -5,11 +5,12 @@ import { BiMenu } from "react-icons/bi";
 import { IoMdCloseCircle } from "react-icons/io";
 import { SiThunderstore } from "react-icons/si";
 import LanguageSwitcher from "./components/LanguageSwitcher";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 
 const Navbar = () => {
   const t = useTranslations("navbar");
+  const locale = useLocale();
   const [isOpen, setOpen] = useState<boolean>(false);
 
   const handleOpen = () => {
@@ -19,7 +20,10 @@ const Navbar = () => {
     <nav className="flex justify-center bg-slate-900 text-white py-4 px-8 top-0 left-0 right-0 fixed z-10">
       <div className="flex justify-between w-full lg:w-[80vw] items-center">
         <h1 className="flex font-extrabold text-4xl">
-          <Link href="/" className="flex hover:no-underline gap-2 items-center">
+          <Link
+            href={`/${locale}`}
+            className="flex hover:no-underline gap-2 items-center"
+          >
             <SiThunderstore className="text-red-600" />
             Electrica
           </Link>
@@ -33,7 +37,7 @@ const Navbar = () => {
         >
           <li onClick={() => setOpen(false)}>
             <Link
-              href="/"
+              href={`/${locale}`}
               className="font-thin lg:font-sans text-blue-950 lg:text-white text-xl"
             >
               {t("home")}
@@ -41,7 +45,7 @@ const Navbar = () => {
           </li>
           <li onClick={() => setOpen(false)}>
             <Link
-              href="/about"
+              href={`/${locale}/about`}
               className="font-thin lg:font-sans text-blue-950 lg:text-white text-xl"
             >
               {t("about")}
@@ -49,7 +53,7 @@ const Navbar = () => {
           </li>
           <li onClick={() => setOpen(false)}>
             <Link
-              href="/contact"
+              href={`/${locale}/contact`}
               className="font-thin lg:font-sans text-blue-950 lg:text-white text-xl"
             >
               {t("contact")}
