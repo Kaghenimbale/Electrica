@@ -52,7 +52,7 @@ const Contact = () => {
                   >
                     <button
                       onClick={() => handleCollapse(cap.id)}
-                      className={`flex justify-between items-center w-full p-4 text-left font-medium bg-blue-950 text-white hover:bg-blue-950 transition-colors duration-200`}
+                      className={`flex justify-between items-center w-full p-4 text-left font-medium bg-slate-950 text-white hover:bg-slate-800 transition-colors duration-200`}
                     >
                       {cap.title}
                       {open ? <FaArrowDown /> : <FaArrowRight />}
