@@ -2,7 +2,8 @@
   "navbar": {
     "home": "Accueil",
     "about": "À propos",
-    "contact": "Contact"
+    "contact": "Contact",
+    "btn": "RESERVEZ MAINTENANT"
   },
   "HomeComponents": {
     "about": {
