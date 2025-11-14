@@ -67,7 +67,7 @@ const Navbar = () => {
           </button>
         </ul>
         <button className="hidden lg:block bg-white text-slate-900 p-3 rounded-md transition-all delay-100 hover:bg-red-700 hover:text-white">
-          BOOKING NOW
+          {t("btn")}
         </button>
         <button className="block lg:hidden" onClick={handleOpen}>
           <BiMenu className="text-5xl" />
