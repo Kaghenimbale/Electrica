@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { BiMenu } from "react-icons/bi";
 import { IoMdCloseCircle } from "react-icons/io";
 import { SiThunderstore } from "react-icons/si";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
+import { RiMenu3Line } from "react-icons/ri";
 
 const Navbar = () => {
   const t = useTranslations("navbar");
@@ -70,7 +70,7 @@ const Navbar = () => {
           {t("btn")}
         </button>
         <button className="block lg:hidden" onClick={handleOpen}>
-          <BiMenu className="text-5xl" />
+          <RiMenu3Line className="text-5xl" />
         </button>
       </div>
       <LanguageSwitcher />
