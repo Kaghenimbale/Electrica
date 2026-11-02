@@ -1,32 +1,36 @@
 {
-  "name": "chrismk",
+  "name": "electrica",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
-    "i18next": "^24.2.3",
-    "next": "^15.3.3",
-    "next-i18next": "^15.4.2",
-    "next-intl": "^4.0.2",
+    "next": "^15.5.28",
+    "next-intl": "^4.14.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-i18next": "^15.4.1",
-    "react-icons": "^5.3.0",
-    "resend": "^6.1.2"
+    "react-icons": "^5.7.0",
+    "resend": "^6.37.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "15.0.2",
-    "postcss": "^8",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^15.5.28",
+    "postcss": "^8.5.32",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "$postcss"
+    }
   }
 }

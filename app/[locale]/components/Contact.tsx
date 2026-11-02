@@ -1,13 +1,9 @@
-"use client";
-
-import React, { useState } from "react";
 import { MdEngineering } from "react-icons/md";
-import { FaArrowDown, FaArrowRight } from "react-icons/fa6";
 import Form from "./Form";
 import { useTranslations } from "next-intl";
+import CapabilitiesAccordion from "./CapabilitiesAccordion";
 
 const Contact = () => {
-  const [isOpen, setOpen] = useState<number[]>([]);
   const t = useTranslations("HomeComponents.contact");
   const capabilities = t.raw("capabilities") as {
     id: number;
@@ -15,59 +11,25 @@ const Contact = () => {
     description: string;
   }[];
 
-  const handleCollapse = (id: number) => {
-    if (isOpen.includes(id)) {
-      setOpen(isOpen.filter((el) => el !== id));
-    } else {
-      setOpen([...isOpen, id]);
-    }
-  };
-
   return (
-    <section className="bg-gray-50 py-16">
-      <div className="w-full lg:w-[70vw] mx-auto px-4 lg:px-0">
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12">
-          {/* Contact Form */}
+    <section className="bg-slate-50 px-6 py-20 md:px-10 lg:py-28">
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="grid grid-cols-1 items-start gap-10 xl:grid-cols-2 xl:gap-16">
           <Form />
 
-          {/* Capabilities / Accordion */}
-          <div className="flex flex-col gap-6">
-            <h2 className="text-red-700 text-2xl flex items-center gap-2 font-semibold">
-              <MdEngineering /> {t("title")}
-            </h2>
-            <p className="text-3xl md:text-4xl font-bold text-gray-900 lg:max-w-xl">
-              {t("service")}
+          <div className="rounded-2xl bg-slate-950 p-6 text-white shadow-xl shadow-slate-900/10 sm:p-8 lg:p-10">
+            <p className="mb-5 flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-red-400">
+              <MdEngineering className="text-xl" aria-hidden="true" />
+              {t("title")}
             </p>
-            <span className="text-gray-600 font-light lg:max-w-lg">
+            <h2 className="max-w-xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              {t("service")}
+            </h2>
+            <p className="mt-5 max-w-xl leading-7 text-slate-300">
               {t("description")}
-            </span>
+            </p>
 
-            <div className="mt-6 flex flex-col gap-3">
-              {capabilities.map((cap) => {
-                const open = isOpen.includes(cap.id);
-                return (
-                  <div
-                    key={cap.id}
-                    className="rounded-lg overflow-hidden shadow-md border border-gray-200"
-                  >
-                    <button
-                      onClick={() => handleCollapse(cap.id)}
-                      className={`flex justify-between items-center w-full p-4 text-left font-medium bg-slate-950 text-white hover:bg-slate-800 transition-colors duration-200`}
-                    >
-                      {cap.title}
-                      {open ? <FaArrowDown /> : <FaArrowRight />}
-                    </button>
-                    <div
-                      className={`transition-max-height duration-500 ease-in-out overflow-hidden ${
-                        open ? "max-h-96" : "max-h-0"
-                      } bg-white`}
-                    >
-                      <p className="p-4 text-gray-700">{cap.description}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <CapabilitiesAccordion capabilities={capabilities} />
           </div>
         </div>
       </div>

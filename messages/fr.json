@@ -3,7 +3,12 @@
     "home": "Accueil",
     "about": "À propos",
     "contact": "Contact",
-    "btn": "RESERVEZ MAINTENANT"
+    "services": "Services",
+    "btn": "DEMANDER UN DEVIS",
+    "navigation": "Navigation principale",
+    "language": "Choisir la langue",
+    "openMenu": "Ouvrir le menu de navigation",
+    "closeMenu": "Fermer le menu de navigation"
   },
   "HomeComponents": {
     "about": {
@@ -11,24 +16,29 @@
         "first": "Bienvenue chez",
         "second": "Electrica Services"
       },
-      "description": "Obtenez et construisez des services de qualité en électricité et en réseau",
+      "description": "Des solutions fiables en électricité et en réseau pour les particuliers et les entreprises.",
       "contactBtn": "CONTACTEZ-NOUS MAINTENANT"
     },
     "presentation": {
       "title": "QUI SOMMES NOUS",
-      "title1": "Fournir des solutions électriques fiables et de haute qualité",
-      "title2": "Opérations à l'échelle nationale dans plusieurs secteurs électriques",
-      "title3": "Nous offrons des services de qualité.",
-      "description": "Avec plus de deux ans d'expérience, Electrica propose des solutions électriques fiables et adaptées aux grandes entreprises du pays. Nous proposons une logistique complète et des services personnalisés pour répondre aux besoins spécifiques de chaque marché.",
+      "title1": "Des solutions électriques fiables pour les particuliers et les entreprises",
+      "title2": "Des services électriques et réseau pour les particuliers et les entreprises",
+      "title3": "Des solutions pratiques, pensées pour vos besoins.",
+      "electricalTag": "Génie électrique",
+      "networkTag": "Ingénierie réseau",
+      "founderImageAlt": "KAGHENI Chris, fondateur d’Electrica",
+      "founderRole": "PDG et fondateur d’Electrica",
+      "founderLink": "En savoir plus",
+      "description": "Electrica propose des services électriques et réseau aux particuliers et aux entreprises. Nous vous accompagnons dans la planification, l’installation et la maintenance de systèmes fiables, avec une communication claire à chaque étape.",
       "values": {
         "first": "Des solutions électriques fiables et testées",
-        "second": "Une expertise en logistique et en expédition",
-        "third": "Expérience avérée en matière de qualité et d'excellence"
+        "second": "Une communication claire, de la planification à la réalisation",
+        "third": "Des solutions adaptées à chaque projet"
       }
     },
     "Offer": {
-      "title": "QUI SOMMES NOUS",
-      "description": "Nous offrons des services électriques rentables",
+      "title": "NOS SERVICES",
+      "description": "Des services électriques, réseau et informatiques pour votre projet",
       "services": {
         "first": "MAINTENANCE INFORMATIQUE",
         "second": "INSTALLATION DE RÉSEAU",
@@ -51,31 +61,31 @@
       "data": [
         {
           "title": "À propos",
-          "description": "Avec plus de deux ans d'experience, nous fournissons des solutions logistiques sur mesure."
+          "description": "Nous proposons des services électriques et réseau adaptés aux besoins de chaque client, avec une attention particulière à la sécurité et à la fiabilité."
         },
         {
           "title": "mission",
-          "description": "Fournir des solutions logistiques intelligentes, efficaces et fiables à nos clients."
+          "description": "Fournir des services électriques et réseau fiables grâce à une planification réfléchie, un travail soigné et une communication claire."
         },
         {
           "title": "vision",
-          "description": "Être à la pointe de l'avenir de la logistique grâce à l'innovation, à la durabilité et à l'excellence."
+          "description": "Devenir un partenaire local de confiance pour les projets électriques et réseau de toute envergure."
         }
       ],
       "solutions": {
-        "first": "Nos Solutions sont testées.",
-        "second": "Tirer parti de notre expérience en matière de service.",
-        "third": "Éprouvé et le meilleur de sa catégorie."
+        "first": "Une planification attentive pour chaque projet",
+        "second": "Des installations et une maintenance fiables",
+        "third": "Une communication claire à chaque étape"
       }
     },
     "benefits": {
       "title": "NOS AVANTAGES",
-      "question": "Pourquoi choisir ELectrica",
-      "description": "Avec plus de deux ans d'expertise éprouvée, nous nous engageons à fournir des solutions électriques de classe mondiale adaptées à vos besoins.",
+      "question": "Pourquoi choisir Electrica",
+      "description": "Nous abordons les travaux électriques et réseau avec soin et pragmatisme, en adaptant chaque solution aux besoins de votre domicile ou de votre entreprise.",
       "goals": {
-        "first": "Notre objectif principal est la satisfaction du client grâce à des services fiables.",
-        "second": "Nous mettons en oeuvre des stratégies proatives pour assurer des opérations ininterrompues.",
-        "third": "Nous mettons en oeuvre des strategies proactives pour assurer des operations ininterrompues."
+        "first": "Nous prenons le temps de comprendre vos besoins avant de vous conseiller.",
+        "second": "Nous planifions les installations en privilégiant la sécurité et la fiabilité.",
+        "third": "Nous vous tenons informé, du premier échange à la fin du projet."
       }
     },
     "work": {
@@ -98,12 +108,17 @@
     },
     "portfolio": {
       "title": "NOTRE PORTEFEUILLE",
-      "description": "Nous fournissons des résultats aux leaders de l'industrie"
+      "description": "Découvrez nos compétences en électricité et en réseau",
+      "images": {
+        "first": "Électricien travaillant sur un tableau de commande industriel",
+        "second": "Technicien électricien inspectant un équipement industriel",
+        "third": "Électricien installant et testant du matériel électrique"
+      }
     },
     "contact": {
       "title": "CAPACITÉS",
       "service": "Des services qui aident nos clients à répondre",
-      "description": "Avec plus de deux ans d'expérience dans la fourniture des solutions aux grandes entreprises à travers le pays, nous proposons des solutions de bout en bout.",
+      "description": "Présentez-nous votre besoin et notre équipe vous aidera à définir la prochaine étape pour votre projet électrique, réseau ou informatique.",
       "capabilities": [
         {
           "id": 1,
@@ -119,19 +134,26 @@
 
         {
           "id": 3,
-          "title": "Informatique sur mesure",
-          "description": "Proposants le développement de logiciel, l'integration de systèmes et le support informatique personnalisés en fonction des besoins spécifiques de votre."
+          "title": "Assistance et maintenance informatique",
+          "description": "Maintenance informatique, dépannage et assistance pratique pour votre domicile ou votre entreprise."
         }
       ],
       "message": "Contactez Nous",
       "form": {
-        "Name": "Nom",
+        "Name": "Prénom",
         "Firstname": "Prénom",
+        "Lastname": "Nom",
         "Email": "Email",
         "Phone": "Téléphone",
         "Company": "Entreprise",
         "Address": "Addresse",
-        "Submit": "Envoyer"
+        "Range": "Envergure du projet",
+        "Message": "Comment pouvons-nous vous aider ?",
+        "productBookingMessage": "Bonjour, je souhaite réserver ce produit : {product}. Merci de confirmer sa disponibilité et son prix définitif.",
+        "Submit": "Envoyer le message",
+        "Sending": "Envoi en cours…",
+        "Success": "Merci pour votre message. Notre équipe vous répondra bientôt.",
+        "Error": "L’envoi a échoué. Veuillez réessayer ou nous écrire directement."
       }
     },
     "testimonial": {
@@ -154,64 +176,138 @@
     },
     "footer": {
       "about": "À propos de nous",
-      "description": "Désire obtenir la douleur par elle-même, parce que c'est de la douleur, mais parfois les circonstances.",
+      "description": "Des solutions fiables en électricité et en réseau, réalisées avec soin, sécurité et professionnalisme.",
       "right": "Tous droits réservés",
       "explore": "Explorer",
       "link1": "À propos de l'entreprise",
       "link2": "Rencontrer l'équipe",
       "link3": "Actualités et médias",
       "link4": "Nos projets",
-      "gallery": "Gallerie"
+      "gallery": "Galerie",
+      "whatsapp": "Contacter Electrica sur WhatsApp"
     }
   },
   "AboutComponent": {
-    "title": "À propos de nous",
-    "description": "Nous sommes des professionnels dévoués offrant des services fiables d’entretien électrique et domestique, adaptés à vos besoins. Qu’il s’agisse d’une réparation rapide ou d’un contrôle complet du système, notre équipe d’experts veille à votre sécurité et à votre satisfaction. Forts de plusieurs années d’expérience et animés par la passion du travail bien fait, nous sommes fiers de proposer des solutions durables.",
-    "title1": "Services rapides et amicaux",
-    "description1": "Besoin d’un travail bien fait – et rapidement ? Nos techniciens qualifiés sont prêts à vous aider avec des services fiables, le jour même. Nous apportons une attitude chaleureuse, une expertise approfondie et un engagement à dépasser vos attentes.",
-    "service1": "Professionnels vérifiés et contrôlés",
-    "service2": "Satisfaction garantie par notre Promesse de Bonheur Handy",
-    "service3": "Assistance 24/7 par un vrai humain (pas de robots !)",
-    "service4": "Tarification honnête sans frais cachés",
-    "btntext": "Faire une demande",
+    "title": "À propos d’Electrica",
+    "description": "Electrica propose des services électriques, réseau et informatiques aux particuliers et aux entreprises. Nous vous aidons à planifier et à maintenir des systèmes fiables, en accordant une attention particulière à la sécurité et à vos besoins.",
+    "title1": "Des services techniques fiables",
+    "description1": "D’une réparation ciblée à une installation plus importante, notre équipe prend le temps de comprendre votre projet et de vous expliquer les travaux avant de commencer.",
+    "service1": "Des recommandations et un périmètre clairs",
+    "service2": "La sécurité prise en compte à chaque étape",
+    "service3": "Des services électriques, réseau et informatiques",
+    "service4": "Un devis adapté au projet avant le début des travaux",
+    "panelAlt": "Tableau électrique installé dans un bâtiment",
+    "btntext": "Parlons de votre projet",
     "service": "NOS SERVICES",
     "services": [
       [
         {
           "id": 1,
-          "Icon": "FaComputer",
           "title": "MAINTENANCE INFORMATIQUE",
-          "description": "Gardez vos appareils en parfait état grâce à nos services de maintenance informatique. De la suppression de virus à l’optimisation du système, nous garantissons des machines sûres, rapides et fiables."
+          "description": "Gardez vos ordinateurs en bon état grâce à la maintenance, au dépannage et à l’optimisation des systèmes, à domicile comme en entreprise."
         },
         {
           "id": 2,
-          "Icon": "TbNetwork",
           "title": "INSTALLATION DE RÉSEAUX",
-          "description": "Nous concevons et installons des systèmes réseau efficaces et sécurisés pour les maisons et les entreprises. Qu’ils soient câblés ou sans fil, nos réseaux sont conçus pour la vitesse, la stabilité et l’évolution future."
+          "description": "Nous planifions et installons des réseaux filaires et sans fil pour assurer une connexion fiable à domicile et au travail."
         }
       ],
       [
         {
           "id": 3,
-          "Icon": "FaRegLightbulb",
           "title": "INSTALLATION ÉLECTRIQUE",
-          "description": "Nos électriciens certifiés s’occupent de tous types d’installations électriques – de l’éclairage aux prises, en passant par les systèmes de câblage complets. Nous assurons un travail sûr et conforme aux normes, pour les nouvelles constructions ou les rénovations."
+          "description": "Installation d’éclairages, de prises et de câblage, adaptée aux besoins des constructions neuves et des rénovations."
         },
         {
           "id": 4,
-          "Icon": "TbShoppingCartBolt",
           "title": "FOURNITURES ÉLECTRIQUES",
-          "description": "Nous fournissons des composants et accessoires électriques de haute qualité. Que vous soyez un entrepreneur ou un passionné de bricolage, vous trouverez tout ce qu’il vous faut – des câbles aux disjoncteurs – à des prix compétitifs."
+          "description": "Des composants et accessoires électriques pour les besoins courants d’installation, de réparation et de maintenance."
         }
       ]
     ]
   },
   "ContactComponent": {
+    "eyebrow": "Parlons de votre projet",
     "title": "Contactez-nous",
-    "description": "Votre satisfaction est notre priorité, c’est pourquoi nous vous plaçons au centre de toutes nos actions. Nos coordonnées sont toujours disponibles pour recevoir vos demandes.",
-    "description1": "Vous comptez pour nous. Chez Electrica, il y a toujours quelque chose pour chacun ! Contactez-moi maintenant pour réserver un service ou acheter un produit.",
+    "description": "Vous recherchez une équipe fiable en électricité ou en réseau ? Présentez-nous votre besoin et nous vous aiderons à avancer.",
+    "description1": "De l’installation et la maintenance électriques aux réseaux et à l’assistance informatique, parlons de la solution adaptée à votre projet.",
+    "detailsTitle": "Échangez avec notre équipe",
+    "detailsDescription": "Choisissez le moyen le plus simple pour nous joindre. Nous serons heureux d’en savoir plus sur votre projet.",
     "contactBtn": "Réserver un service",
     "Address": "Adresse",
+    "Email": "E-mail",
     "Phone": "Téléphone"
+  },
+  "ServicesPage": {
+    "eyebrow": "Nos activités",
+    "title": "Services électriques, réseau et informatiques",
+    "description": "Découvrez nos services pour les projets résidentiels et professionnels. Contactez-nous pour discuter de vos besoins et demander un devis.",
+    "cta": "Parlons de votre projet",
+    "serviceHeading": "Des services adaptés à votre projet",
+    "serviceDescription": "De l’installation à l’assistance, nous vous aidons à choisir le service qui correspond à vos besoins.",
+    "productsEyebrow": "Fournitures électriques",
+    "productsHeading": "Des produits électriques pour votre logement ou votre projet",
+    "productsDescription": "Nous vendons également du matériel électrique essentiel pour vos installations, réparations et rénovations.",
+    "samplePriceNote": "Prix indicatifs en USD, présentés à titre d’exemple. Le prix définitif et la disponibilité seront confirmés lors de votre réservation.",
+    "samplePriceLabel": "Prix indicatif",
+    "like": "J’aime",
+    "unlike": "Aimé",
+    "likeProduct": "Aimer : {product}",
+    "unlikeProduct": "Ne plus aimer : {product}",
+    "bookProduct": "Réserver cet article",
+    "products": [
+      {
+        "id": "plug",
+        "title": "Prises",
+        "description": "Des points de raccordement fiables pour vos installations et remplacements.",
+        "image": "/products/plug.svg",
+        "price": 3.5
+      },
+      {
+        "id": "switch",
+        "title": "Interrupteurs",
+        "description": "Des interrupteurs pratiques, adaptés à vos besoins d’éclairage et d’installation.",
+        "image": "/products/switch.svg",
+        "price": 4
+      },
+      {
+        "id": "bulb",
+        "title": "Ampoules",
+        "description": "Des ampoules pour un éclairage quotidien confortable et efficace.",
+        "image": "/products/bulb.svg",
+        "price": 2.5
+      },
+      {
+        "id": "spotlight",
+        "title": "Spots",
+        "description": "Des solutions d’éclairage ciblé pour les pièces, les espaces de travail et l’extérieur.",
+        "image": "/products/spotlight.svg",
+        "price": 8
+      },
+      {
+        "id": "breaker",
+        "title": "Disjoncteurs",
+        "description": "Des composants de protection pour une distribution électrique sûre.",
+        "image": "/products/breaker.svg",
+        "price": 12
+      },
+      {
+        "id": "ceilingLight",
+        "title": "Plafonniers",
+        "description": "Des luminaires de plafond pour un éclairage pratique et décoratif.",
+        "image": "/products/ceiling-light.svg",
+        "price": 18
+      },
+      {
+        "id": "chandelier",
+        "title": "Lustres",
+        "description": "Des luminaires décoratifs pour les logements et les espaces professionnels.",
+        "image": "/products/chandelier.svg",
+        "price": 65
+      }
+    ]
+  },
+  "a11y": {
+    "skipToContent": "Aller au contenu principal"
   }
 }

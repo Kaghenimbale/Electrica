@@ -1,80 +1,105 @@
 "use client";
 
 import { useState } from "react";
-import { IoMdCloseCircle } from "react-icons/io";
+import { useTranslations } from "next-intl";
+import { FiMenu, FiX } from "react-icons/fi";
 import { SiThunderstore } from "react-icons/si";
+import { Link, usePathname } from "@/i18n/navigation";
 import LanguageSwitcher from "./components/LanguageSwitcher";
-import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
-import { RiMenu3Line } from "react-icons/ri";
 
 const Navbar = () => {
   const t = useTranslations("navbar");
-  const locale = useLocale();
-  const [isOpen, setOpen] = useState<boolean>(false);
+  const pathname = usePathname();
+  const [isOpen, setOpen] = useState(false);
 
-  const handleOpen = () => {
-    setOpen((prev) => !prev);
-  };
+  const links = [
+    { href: "/", label: t("home") },
+    { href: "/services", label: t("services") },
+    { href: "/about", label: t("about") },
+    { href: "/contact", label: t("contact") },
+  ] as const;
+
+  const closeMenu = () => setOpen(false);
+
   return (
-    <nav className="flex justify-center bg-slate-900 text-white py-4 px-8 top-0 left-0 right-0 fixed z-10">
-      <div className="flex justify-between w-full lg:w-[80vw] items-center">
-        <h1 className="flex font-extrabold text-4xl">
-          <Link
-            href={`/${locale}`}
-            className="flex hover:no-underline gap-2 items-center"
-          >
-            <SiThunderstore className="text-red-600" />
-            Electrica
-          </Link>
-        </h1>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/95 text-white shadow-lg shadow-slate-950/10 backdrop-blur-md">
+      <nav
+        className="relative mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-10 lg:px-12"
+        aria-label={t("navigation")}
+      >
+        <Link
+          href="/"
+          onClick={closeMenu}
+          className="inline-flex items-center gap-2 text-2xl font-extrabold tracking-tight text-white hover:text-white hover:no-underline sm:text-3xl"
+        >
+          <SiThunderstore className="text-2xl text-red-500 sm:text-3xl" aria-hidden="true" />
+          Electrica
+        </Link>
+
         <ul
+          id="primary-navigation"
           className={`${
             isOpen
-              ? "backdrop-blur-3xl absolute left-0 top-0 w-[100vw] h-[100vh] flex flex-col items-center justify-center gap-10"
-              : "hidden lg:flex gap-4"
-          }`}
+              ? "absolute inset-x-0 top-full flex flex-col gap-2 border-b border-white/10 bg-slate-950 px-6 py-5 shadow-xl md:px-10"
+              : "hidden"
+          } lg:static lg:flex lg:flex-row lg:items-center lg:gap-8 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none`}
         >
-          <li onClick={() => setOpen(false)}>
+          {links.map(({ href, label }) => {
+            const active = pathname === href;
+
+            return (
+              <li key={href}>
+                <Link
+                  href={href}
+                  onClick={closeMenu}
+                  aria-current={active ? "page" : undefined}
+                  className={`block rounded-lg px-3 py-3 text-base font-medium transition-colors hover:no-underline lg:px-0 lg:py-2 ${
+                    active
+                      ? "bg-white/5 text-white lg:bg-transparent lg:text-red-400"
+                      : "text-slate-300 hover:bg-white/5 hover:text-white lg:hover:bg-transparent"
+                  }`}
+                >
+                  {label}
+                </Link>
+              </li>
+            );
+          })}
+          <li className="pt-2 lg:hidden">
             <Link
-              href={`/${locale}`}
-              className="font-thin lg:font-sans text-blue-950 lg:text-white text-xl"
+              href="/contact"
+              onClick={closeMenu}
+              className="flex min-h-12 items-center justify-center rounded-lg bg-red-600 px-5 py-3 font-semibold text-white transition-colors hover:bg-red-500 hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-400"
             >
-              {t("home")}
+              {t("btn")}
             </Link>
           </li>
-          <li onClick={() => setOpen(false)}>
-            <Link
-              href={`/${locale}/about`}
-              className="font-thin lg:font-sans text-blue-950 lg:text-white text-xl"
-            >
-              {t("about")}
-            </Link>
-          </li>
-          <li onClick={() => setOpen(false)}>
-            <Link
-              href={`/${locale}/contact`}
-              className="font-thin lg:font-sans text-blue-950 lg:text-white text-xl"
-            >
-              {t("contact")}
-            </Link>
-          </li>
-          <button
-            className="flex items-center justify-center lg:hidden absolute top-10 right-10"
-            onClick={handleOpen}
-          >
-            <IoMdCloseCircle className="font-extrabold text-5xl text-red-700" />
-          </button>
         </ul>
-        <button className="hidden lg:block bg-white text-slate-900 p-3 rounded-md transition-all delay-100 hover:bg-red-700 hover:text-white">
-          {t("btn")}
-        </button>
-        <button className="block lg:hidden" onClick={handleOpen}>
-          <RiMenu3Line className="text-5xl" />
-        </button>
-      </div>
-      <LanguageSwitcher />
-    </nav>
+
+        <div className="flex items-center gap-3 sm:gap-5">
+          <LanguageSwitcher />
+          <Link
+            href="/contact"
+            className="hidden min-h-11 items-center justify-center rounded-lg bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-red-950/25 transition-colors hover:bg-red-500 hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-400 lg:inline-flex"
+          >
+            {t("btn")}
+          </Link>
+          <button
+            type="button"
+            className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/15 text-2xl text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-400 lg:hidden"
+            onClick={() => setOpen((open) => !open)}
+            aria-expanded={isOpen}
+            aria-controls="primary-navigation"
+            aria-label={t(isOpen ? "closeMenu" : "openMenu")}
+          >
+            {isOpen ? (
+              <FiX aria-hidden="true" />
+            ) : (
+              <FiMenu aria-hidden="true" />
+            )}
+          </button>
+        </div>
+      </nav>
+    </header>
   );
 };
 

@@ -1,66 +1,71 @@
-import React from "react";
-import { MdElectricMeter, MdEngineering } from "react-icons/md";
-import { IoHammerOutline } from "react-icons/io5";
-import { GiScrewdriver } from "react-icons/gi";
 import { useTranslations } from "next-intl";
+import type { IconType } from "react-icons";
+import { GiScrewdriver } from "react-icons/gi";
+import { IoHammerOutline } from "react-icons/io5";
+import { MdElectricMeter, MdEngineering } from "react-icons/md";
+import { FiArrowUpRight } from "react-icons/fi";
+import { Link } from "@/i18n/navigation";
+
+const stepIcons: IconType[] = [GiScrewdriver, IoHammerOutline, MdElectricMeter];
 
 const Work = () => {
   const t = useTranslations("HomeComponents.work");
-  const datas = t.raw("works") as { title: string; description: string }[];
-
-  const cards = [
-    {
-      icon: <GiScrewdriver className="text-6xl text-red-600" />,
-      ...datas[0],
-      number: "01",
-    },
-    {
-      icon: <IoHammerOutline className="text-6xl text-red-600" />,
-      ...datas[1],
-      number: "02",
-    },
-    {
-      icon: <MdElectricMeter className="text-6xl text-red-600" />,
-      ...datas[2],
-      number: "03",
-    },
-  ];
+  const nav = useTranslations("navbar");
+  const steps = t.raw("works") as { title: string; description: string }[];
 
   return (
-    <section className="bg-slate-950 w-full py-16">
-      <div className="w-full lg:w-[70vw] mx-auto flex flex-col items-center gap-6 px-4">
-        <h2 className="text-red-700 text-2xl md:text-3xl flex gap-2 items-center font-semibold">
-          <MdEngineering />
-          {t("title")}
-        </h2>
-        <p className="text-3xl md:text-5xl font-bold text-center text-white max-w-4xl">
-          {t("process")}
-        </p>
+    <section className="w-full bg-slate-950 px-6 py-20 text-white md:px-10 lg:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-5 flex items-center justify-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-red-400 md:text-base">
+            <MdEngineering className="text-xl" aria-hidden="true" />
+            {t("title")}
+          </p>
+          <h2 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+            {t("process")}
+          </h2>
+        </div>
 
-        {/* Cards Grid */}
-        <div className="w-full flex flex-col lg:flex-row justify-center items-center gap-8 mt-10">
-          {cards.map((card, idx) => (
-            <div
-              key={idx}
-              className="bg-slate-900 flex flex-col items-center text-center p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 w-64 md:w-72"
-            >
-              {/* Icon */}
-              <div className="mb-4">{card.icon}</div>
+        <ol className="mt-12 grid gap-5 md:mt-16 lg:grid-cols-3">
+          {steps.map((step, index) => {
+            const Icon = stepIcons[index];
 
-              {/* Title & Description */}
-              <div className="flex flex-col gap-2 mb-4">
-                <h3 className="font-extrabold text-xl text-white">
-                  {card.title}
+            return (
+              <li
+                key={step.title}
+                className="group relative flex h-full flex-col rounded-2xl border border-white/10 bg-slate-900 p-6 transition duration-200 hover:-translate-y-1 hover:border-red-500/40 hover:shadow-xl hover:shadow-black/20 motion-reduce:transition-none sm:p-8"
+              >
+                <div className="mb-7 flex items-center justify-between">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-red-600/10 text-3xl text-red-400 transition-colors group-hover:bg-red-600 group-hover:text-white motion-reduce:transition-none">
+                    {Icon && <Icon aria-hidden="true" />}
+                  </span>
+                  <span
+                    className="text-sm font-bold tracking-[0.18em] text-slate-500"
+                    aria-hidden="true"
+                  >
+                    0{index + 1}
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-bold leading-snug text-white sm:text-2xl">
+                  {step.title}
                 </h3>
-                <p className="font-light text-gray-300">{card.description}</p>
-              </div>
+                <p className="mt-3 flex-1 leading-7 text-slate-300">
+                  {step.description}
+                </p>
+              </li>
+            );
+          })}
+        </ol>
 
-              {/* Step Number */}
-              <div className="text-2xl md:text-3xl font-extrabold bg-gray-700 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full text-white">
-                {card.number}
-              </div>
-            </div>
-          ))}
+        <div className="mt-10 flex justify-center">
+          <Link
+            href="/contact"
+            className="inline-flex min-h-12 items-center gap-3 rounded-lg bg-red-600 px-6 py-3 font-semibold text-white shadow-md shadow-red-950/30 transition-colors hover:bg-red-500 hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-400"
+          >
+            {nav("contact")}
+            <FiArrowUpRight className="text-xl" aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </section>

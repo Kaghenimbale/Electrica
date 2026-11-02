@@ -3,7 +3,12 @@
     "home": "Home",
     "about": "About",
     "contact": "Contact",
-    "btn": "BOOK NOW"
+    "services": "Services",
+    "btn": "GET A QUOTE",
+    "navigation": "Main navigation",
+    "language": "Choose language",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu"
   },
   "HomeComponents": {
     "about": {
@@ -11,24 +16,29 @@
         "first": "Welcome to",
         "second": "Electrica services"
       },
-      "description": "Get and Build Quality Services in Electricity and Networking.",
+      "description": "Reliable electrical and networking solutions for homes and businesses.",
       "contactBtn": "CONTACT US NOW"
     },
     "presentation": {
       "title": "WHO WE ARE",
-      "title1": "Delivering Reliable and High Quality Electrical Solutions",
-      "title2": "Nationwide Operations Accross Multiple Electrical Sectors",
-      "title3": "We offer quality services.",
-      "description": "With over 2 years of experience, Electrica delivers reliable electrical solutions tailored for large-scale enterprises across the country. We offer end-to-end logistics and customized services to meet the unique needs of each market.",
+      "title1": "Reliable electrical solutions for homes and businesses",
+      "title2": "Electrical and networking services for homes and businesses",
+      "title3": "Practical solutions, planned around your needs.",
+      "electricalTag": "Electrical Engineering",
+      "networkTag": "Network Engineering",
+      "founderImageAlt": "KAGHENI Chris, founder of Electrica",
+      "founderRole": "CEO & Founder, Electrica",
+      "founderLink": "Discover more",
+      "description": "Electrica provides practical electrical and networking services for homes and businesses. We help plan, install and maintain dependable systems, with clear communication from consultation through completion.",
       "values": {
         "first": "Trusted and tested electrical solutions",
-        "second": "Deep expertise in logistics and shipping",
-        "third": "Proven track record of quality and excellence"
+        "second": "Clear communication from planning to completion",
+        "third": "Solutions tailored to each project"
       }
     },
     "Offer": {
-      "title": "WHO WE ARE",
-      "description": "We Offer Cost Efficient Electrical Services",
+      "title": "OUR SERVICES",
+      "description": "Electrical, networking and IT services for your project",
       "services": {
         "first": "COMPUTER MAINTENANCE",
         "second": "NETWORK INSTALLATION",
@@ -51,31 +61,31 @@
       "data": [
         {
           "title": "about",
-          "description": "With over four decades of experience,we deliver tailored logistics solutions to large-scale enterprises across the country. Our expertise ensure reliable, efficient service for specific market needs."
+          "description": "We provide electrical and networking services shaped around each client’s needs, with a focus on safe, dependable work."
         },
         {
           "title": "mission",
-          "description": "To provide  smart, efficient, and reliable logistics solutions powered by technology--delivering value and excellence to every client."
+          "description": "To deliver dependable electrical and networking services through thoughtful planning, skilled work and clear communication."
         },
         {
           "title": "vision",
-          "description": "To lead the future of logistics through innovation, sustainability, and customer-fucosed service."
+          "description": "To be a trusted local partner for electrical and networking projects of every scale."
         }
       ],
       "solutions": {
-        "first": "Our Solution are tested",
-        "second": "Leverage our experience in service",
-        "third": "Proven, and Best in class"
+        "first": "Careful planning for every project",
+        "second": "Reliable installation and maintenance",
+        "third": "Clear communication at every step"
       }
     },
     "benefits": {
       "title": "OUR BENEFITS",
-      "question": "Why Choose ELectrica",
-      "description": "with over two years of proven expertise, we are committed to delivering world-class electrical solutions tailored to your needs.",
+      "question": "Why Choose Electrica",
+      "description": "We bring practical experience and a thoughtful approach to electrical and networking work, tailoring each solution to the needs of your home or business.",
       "goals": {
-        "first": "Our primry goal is customer satisfaction trough reliable services.",
-        "second": "We implement proactive strategies to ensure uninterrupted operations.",
-        "third": "We implement proactive strategies to ensure uninterrupted operations."
+        "first": "We listen carefully and recommend work that fits your needs.",
+        "second": "We plan installations with safety and long-term reliability in mind.",
+        "third": "We keep you informed from the first conversation to project completion."
       }
     },
     "work": {
@@ -98,12 +108,17 @@
     },
     "portfolio": {
       "title": "OUR PORTFOLIO",
-      "description": "We delivered results for industry leaders"
+      "description": "A closer look at our electrical and networking capabilities",
+      "images": {
+        "first": "Electrician working at an industrial control panel",
+        "second": "Electrical technician inspecting industrial equipment",
+        "third": "Electrician installing and testing electrical equipment"
+      }
     },
     "contact": {
       "title": "CAPABILITIES",
       "service": "Services that help our customers meet",
-      "description": "With over four decades of experience providing solutions to large scale enterprises throughout the country, we offer end to end.",
+      "description": "Tell us what you need and our team will help you identify the right next step for your electrical, networking or IT project.",
       "capabilities": [
         {
           "id": 1,
@@ -119,19 +134,26 @@
 
         {
           "id": 3,
-          "title": "Tailored Computer science",
-          "description": "Offering sotware development, system integration, and IT support customized to your specific business requirements."
+          "title": "Computer support and maintenance",
+          "description": "Computer maintenance, troubleshooting and practical IT support for your home or business."
         }
       ],
       "message": "Contact Us",
       "form": {
-        "Name": "Name",
+        "Name": "First name",
         "Firstname": "First Name",
+        "Lastname": "Last name",
         "Email": "Email",
         "Phone": "Phone",
         "Company": "Company",
         "Address": "Address",
-        "Submit": "Submit"
+        "Range": "Project range",
+        "Message": "How can we help?",
+        "productBookingMessage": "Hello, I’d like to book this product: {product}. Please confirm availability and the final price.",
+        "Submit": "Send message",
+        "Sending": "Sending message…",
+        "Success": "Thanks for your message. Our team will be in touch soon.",
+        "Error": "We couldn’t send your message. Please try again or email us directly."
       }
     },
     "testimonial": {
@@ -154,64 +176,138 @@
     },
     "footer": {
       "about": "About Us",
-      "description": "Desires to obtain pain of itself, because it is pain, but occasionally circumstances.",
+      "description": "Reliable electrical and networking solutions, delivered with care, safety, and professionalism.",
       "right": "All Rights Reserved",
       "explore": "Explore",
       "link1": "About the Company",
       "link2": " Meet the Team",
       "link3": "News & Media",
       "link4": "Our Projects",
-      "gallery": "Gallery"
+      "gallery": "Gallery",
+      "whatsapp": "Contact Electrica on WhatsApp"
     }
   },
   "AboutComponent": {
-    "title": "About Us",
-    "description": "We are dedicated professionals offering reliable electrical and home maintenance services tailored to your needs. Whether it's a quick fix or a complete system check, our expert team ensures your safety and satisfaction. With years of experience and a passion for quality work, we take pride in delivering solutions that last.",
-    "title1": "Fast, Friendly Services",
-    "description1": "Need a job done right--and fast? Our skilled technicians are ready to help with dependable, same-day services. We bring a friendly attitude, deep, expertise, and commitment to exceeding your expectations.",
-    "service1": "Verified and background-checked professionals",
-    "service2": "Satisfaction backed by our Handy Happiness Guarantee",
-    "service3": "24/7 support from a real human (no bots!)",
-    "service4": "Honest pricing with no hidden fees",
-    "btntext": "Make an Inquiry",
+    "title": "About Electrica",
+    "description": "Electrica provides electrical, networking and computer services for homes and businesses. We help clients plan and maintain dependable systems, with careful attention to safety and practical needs.",
+    "title1": "Dependable technical services",
+    "description1": "From a focused repair to a larger installation, our team takes time to understand the project and explain the work before getting started.",
+    "service1": "Clear project scope and recommendations",
+    "service2": "Safety considered throughout the work",
+    "service3": "Electrical, networking and IT services",
+    "service4": "Project-specific estimates before work begins",
+    "panelAlt": "Electrical distribution panel installed in a building",
+    "btntext": "Discuss your project",
     "service": "OUR SERVICES",
     "services": [
       [
         {
           "id": 1,
-          "Icon": "FaComputer",
           "title": "COMPUTER MAINTENANCE",
-          "description": "Keep your devices running smoothly with our expert computer maintenance services. From virus removal to system optimization, we ensure your machines are secure, fast, and reliable"
+          "description": "Keep computers running smoothly with maintenance, troubleshooting and system optimization for home and business devices."
         },
         {
           "id": 2,
-          "Icon": "TbNetwork",
           "title": "NETWORK INSTALLATION",
-          "description": "We design and install efficient and secure network systems for homes and businesses. Wether wired or wireless, our networks are built for speed, stability and future growth."
+          "description": "We plan and install wired and wireless networks for reliable connectivity at home and in the workplace."
         }
       ],
       [
         {
           "id": 3,
-          "Icon": "FaRegLightbulb",
           "title": "ELECTRICAL INSTALLATION",
-          "description": "Our certified electricians handle all types of electrical installations--from lighting and sockets to full wiring systems. We ensure safe, code-compliant work for new builds or renovations."
+          "description": "Electrical installation for lighting, outlets and wiring, planned around the requirements of new builds and renovations."
         },
         {
           "id": 4,
-          "Icon": "TbShoppingCartBolt",
           "title": "ELECTRICAL MATERIALS",
-          "description": "We supply high-quality electrical component and accessories. Wether you're a contractor or a DIY enthusiast, you'll find everything you need--from cables to circuit breakers--at competitive prices"
+          "description": "Electrical components and accessories for common installation, repair and maintenance needs."
         }
       ]
     ]
   },
   "ContactComponent": {
+    "eyebrow": "Let’s talk",
     "title": "Contact Us",
-    "description": "Satisfying you is all that we long for, that is why we put you first in all that we do. Our contact details are always ready to have your request.",
-    "description1": "You matter to us. Here at Electrica, there is always something for everyone! Contact me now to book a service or buy a product.",
+    "description": "Looking for a reliable electrical or networking team? Tell us what you need, and we’ll help you take the next step.",
+    "description1": "From electrical installations and maintenance to networking and computer support, we’re here to discuss the right solution for your project.",
+    "detailsTitle": "Talk to our team",
+    "detailsDescription": "Choose the easiest way to reach us. We look forward to hearing about your project.",
     "contactBtn": "Book A Service",
     "Address": "Address",
+    "Email": "Email",
     "Phone": "Phone"
+  },
+  "ServicesPage": {
+    "eyebrow": "What we do",
+    "title": "Electrical, networking and IT services",
+    "description": "Explore practical services for residential and business projects. Contact us to discuss your requirements and request an estimate.",
+    "cta": "Discuss your project",
+    "serviceHeading": "Services for your project",
+    "serviceDescription": "From installation to ongoing support, we’ll help you find the right service for your needs.",
+    "productsEyebrow": "Electrical supplies",
+    "productsHeading": "Electrical products for your home or project",
+    "productsDescription": "We also sell essential electrical materials for installations, repairs and upgrades.",
+    "samplePriceNote": "Sample prices in USD for display only. Final prices and availability are confirmed when you book.",
+    "samplePriceLabel": "Sample price",
+    "like": "Like",
+    "unlike": "Liked",
+    "likeProduct": "Like {product}",
+    "unlikeProduct": "Unlike {product}",
+    "bookProduct": "Book this item",
+    "products": [
+      {
+        "id": "plug",
+        "title": "Plugs and sockets",
+        "description": "Reliable connection points for new installations and replacements.",
+        "image": "/products/plug.svg",
+        "price": 3.5
+      },
+      {
+        "id": "switch",
+        "title": "Switches",
+        "description": "Practical switches to suit your lighting and installation needs.",
+        "image": "/products/switch.svg",
+        "price": 4
+      },
+      {
+        "id": "bulb",
+        "title": "Light bulbs",
+        "description": "Everyday bulbs for comfortable, efficient lighting.",
+        "image": "/products/bulb.svg",
+        "price": 2.5
+      },
+      {
+        "id": "spotlight",
+        "title": "Spotlights",
+        "description": "Focused lighting options for rooms, workspaces and outdoor areas.",
+        "image": "/products/spotlight.svg",
+        "price": 8
+      },
+      {
+        "id": "breaker",
+        "title": "Circuit breakers",
+        "description": "Protective components for safe electrical distribution.",
+        "image": "/products/breaker.svg",
+        "price": 12
+      },
+      {
+        "id": "ceilingLight",
+        "title": "Ceiling lights",
+        "description": "Ceiling fixtures for functional and decorative room lighting.",
+        "image": "/products/ceiling-light.svg",
+        "price": 18
+      },
+      {
+        "id": "chandelier",
+        "title": "Chandeliers",
+        "description": "Decorative statement lighting for homes and businesses.",
+        "image": "/products/chandelier.svg",
+        "price": 65
+      }
+    ]
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content"
   }
 }

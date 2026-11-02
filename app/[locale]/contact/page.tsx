@@ -1,91 +1,110 @@
-"use client";
-import React, { useState } from "react";
+import type { Metadata } from "next";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import { IoIosCall, IoMdCloseCircle } from "react-icons/io";
-import { FaAngleRight } from "react-icons/fa";
+import { IoIosCall } from "react-icons/io";
 import Form from "../components/Form";
-import { useTranslations } from "next-intl";
+import { createPageMetadata } from "@/i18n/metadata";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "ContactComponent" });
+  return createPageMetadata(locale, t("title"), t("description"));
+}
 
 const Page = () => {
   const t = useTranslations("ContactComponent");
-  const [isOpen, setOpen] = useState(false);
-  const handleClick = () => {
-    setOpen((prev) => !prev);
-  };
 
-  const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
-    if ((e.target as HTMLElement).id === "wrapper") {
-      setOpen((prev) => !prev);
-    }
-  };
+  const contactDetails = [
+    {
+      label: t("Address"),
+      icon: FaLocationDot,
+      content: (
+        <>
+          Goma, Quartier Himbi
+          <br />
+          Av du Lac N°59
+        </>
+      ),
+    },
+    {
+      label: t("Email"),
+      icon: MdEmail,
+      content: (
+        <a
+          href="mailto:kaghenimbale@gmail.com"
+          className="break-all text-slate-600 transition-colors hover:text-red-700 hover:no-underline"
+        >
+          kaghenimbale@gmail.com
+        </a>
+      ),
+    },
+    {
+      label: t("Phone"),
+      icon: IoIosCall,
+      content: (
+        <a
+          href="tel:+243977813248"
+          className="text-slate-600 transition-colors hover:text-red-700 hover:no-underline"
+        >
+          +243 977 813 248
+        </a>
+      ),
+    },
+  ];
+
   return (
-    <div className="mt-[5rem] w-[70vw] mx-auto py-10 ">
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div className="flex flex-col gap-16">
-          <h2 className="text-4xl font-bold flex">{t("title")}</h2>
-          <div className="flex flex-col gap-8 lg:w-[30rem]">
-            <p className="font-thin">{t("description")}</p>
-
-            <p className="font-thin">{t("description1")}</p>
-          </div>
-
-          <div className="flex flex-col lg:flex-row gap-4 justify-between lg:w-[40rem]">
-            <div className="flex flex-col gap-2">
-              <FaLocationDot className="text-4xl border border-gray-500 w-[60px] h-[60px] p-2 rounded-lg text-gray-500" />
-              <div>
-                <p className="font-bold">{t("Address")}:</p>
-                <p className="text-gray-500">
-                  Goma, Quartier Himbi <br /> Av du Lac N°59
-                </p>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <MdEmail className="text-4xl border border-gray-500 w-[60px] h-[60px] p-2 rounded-lg text-gray-500" />
-              <div>
-                <p className="font-bold">Email:</p>
-                <p className="text-gray-500">kaghenimbale@gmail.com</p>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <IoIosCall className="text-4xl border border-gray-500 w-[60px] h-[60px] p-2 rounded-lg text-gray-500" />
-              <div>
-                <p className="font-bold">{t("Phone")}:</p>
-                <p className="text-gray-500">+243977813248</p>
-              </div>
-            </div>
-          </div>
+    <section className="min-h-screen bg-slate-50 px-6 pb-20 pt-32 md:px-10 lg:pb-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+            {t("eyebrow")}
+          </p>
+          <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+            {t("title")}
+          </h1>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+            {t("description")}
+          </p>
+          <p className="mt-3 max-w-2xl leading-7 text-slate-600">
+            {t("description1")}
+          </p>
         </div>
 
-        <div className="flex items-center justify-center">
-          <button
-            className="bg-red-700 text-white p-3 w-fit rounded-md transition-all delay-100 hover:bg-white hover:text-red-700 hover:border hover:border-red-700 flex gap-2 items-center"
-            onClick={handleClick}
-          >
-            {t("contactBtn")} <FaAngleRight />
-          </button>
+        <div className="grid items-start gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
+          <div className="rounded-2xl bg-slate-950 p-6 text-white shadow-xl shadow-slate-900/10 sm:p-8 lg:p-10">
+            <h2 className="text-xl font-bold sm:text-2xl">{t("detailsTitle")}</h2>
+            <p className="mt-3 leading-7 text-slate-300">{t("detailsDescription")}</p>
+
+            <ul className="mt-8 space-y-3">
+              {contactDetails.map(({ label, icon: Icon, content }) => (
+                <li
+                  key={label}
+                  className="flex items-start gap-4 rounded-xl border border-white/10 bg-white/[0.04] p-4"
+                >
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-red-600/15 text-xl text-red-400">
+                    <Icon aria-hidden="true" />
+                  </span>
+                  <div className="min-w-0 pt-0.5">
+                    <h3 className="font-semibold text-white">{label}</h3>
+                    <div className="mt-1 text-sm leading-6 text-slate-300">
+                      {content}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <Form />
         </div>
       </div>
-      {isOpen ? (
-        <div
-          id="wrapper"
-          onClick={handleClose}
-          className="absolute w-[100%] h-[100%] backdrop-blur-md top-0 left-0 z-10 flex items-center justify-center"
-        >
-          <Form />
-          <button
-            className="flex items-center justify-center absolute top-10 right-10"
-            onClick={handleClick}
-          >
-            <IoMdCloseCircle className="font-extrabold text-5xl text-red-700" />
-          </button>
-        </div>
-      ) : (
-        ""
-      )}
-    </div>
+    </section>
   );
 };
 

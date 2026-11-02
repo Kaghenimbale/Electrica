@@ -1,71 +1,91 @@
-import React from "react";
-import { MdEngineering } from "react-icons/md";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import type { IconType } from "react-icons";
+import { FaComputer, FaRegLightbulb } from "react-icons/fa6";
+import { MdEngineering, MdElectricBolt } from "react-icons/md";
+import { TbNetwork } from "react-icons/tb";
 import img1 from "../../../public/a-man-with-a-white-helmet-and-glasses-is-smiling-he-is-wearing-an-orange-shirt-with-a-pattern-photo.jpg";
 import img2 from "../../../public/worker-red-uniform-operating-control-panel-industrial-machine-night_753333-6558.jpg";
 import img3 from "../../../public/electrical-engineer_762625-3025.avif";
-import { TbNetwork } from "react-icons/tb";
-import { FaRegLightbulb, FaComputer, FaPlay } from "react-icons/fa6";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
 
 const Offer = () => {
   const t = useTranslations("HomeComponents.Offer");
 
-  const services = [
-    { img: img1, icon: <FaComputer />, text: t("services.first") },
-    { img: img2, icon: <TbNetwork />, text: t("services.second") },
-    { img: img3, icon: <FaRegLightbulb />, text: t("services.third") },
+  const services: {
+    key: "first" | "second" | "third";
+    image: typeof img1;
+    icon: IconType;
+  }[] = [
+    { key: "first", image: img1, icon: FaComputer },
+    { key: "second", image: img2, icon: TbNetwork },
+    { key: "third", image: img3, icon: FaRegLightbulb },
   ];
 
   return (
-    <section className="w-full lg:w-[70vw] mx-auto flex flex-col items-center gap-16 py-16 bg-slate-950">
-      {/* Section Title */}
-      <div className="flex flex-col items-center gap-4 text-center px-6">
-        <h2 className="text-red-600 text-xl md:text-2xl flex items-center gap-2 font-semibold">
-          <MdEngineering />
-          {t("title")}
-        </h2>
-        <p className="text-3xl md:text-5xl font-bold max-w-3xl text-white leading-snug">
-          {t("description")}
-        </p>
-      </div>
-
-      {/* Services Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
-        {services.map((service, i) => (
-          <div
-            key={i}
-            className="relative group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-transform duration-300 hover:scale-105"
-          >
-            {/* Image */}
-            <Image
-              src={service.img}
-              alt={`service-${i}`}
-              className="w-full h-64 object-cover"
-            />
-
-            {/* Bottom bar with icon and text */}
-            <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md p-4 flex items-center gap-4">
-              <div className="bg-red-600 text-white w-12 h-12 flex items-center justify-center rounded-md text-2xl">
-                {service.icon}
-              </div>
-              <p className="text-gray-900 font-semibold">{service.text}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Principle Section */}
-      <div className="w-full bg-red-600 grid grid-cols-1 lg:grid-cols-2 items-center px-8 md:px-20 py-16 gap-8">
-        <p className="text-2xl md:text-3xl font-bold text-white border-l-8 border-white pl-5 leading-snug">
-          {t("OurPrinciple")}
-        </p>
-
-        <div className="flex items-center justify-center">
-          <button className="w-20 h-20 md:w-24 md:h-24 bg-white flex items-center justify-center rounded-full shadow-xl hover:scale-110 transition-transform duration-300">
-            <FaPlay className="text-red-600 text-2xl md:text-3xl" />
-          </button>
+    <section className="w-full bg-slate-950 px-6 py-20 text-white md:px-10 lg:py-28">
+      <div className="mx-auto flex max-w-7xl flex-col">
+        <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
+          <p className="mb-5 flex items-center justify-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-red-400 md:text-base">
+            <MdEngineering className="text-xl" aria-hidden="true" />
+            {t("title")}
+          </p>
+          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+            {t("description")}
+          </h2>
         </div>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map(({ key, image, icon: Icon }, index) => (
+            <article
+              key={key}
+              className="group relative isolate min-h-[22rem] overflow-hidden rounded-2xl bg-slate-800 shadow-lg shadow-black/20 sm:min-h-[25rem]"
+            >
+              <Image
+                src={image}
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none"
+              />
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-slate-950/5"
+                aria-hidden="true"
+              />
+              <span className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-slate-950/45 text-sm font-semibold text-white backdrop-blur-sm">
+                0{index + 1}
+              </span>
+              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-red-600 text-2xl text-white shadow-lg shadow-red-950/30">
+                  <Icon aria-hidden="true" />
+                </span>
+                <h3 className="text-lg font-bold leading-snug text-white sm:text-xl">
+                  {t(`services.${key}`)}
+                </h3>
+                <div
+                  className="mt-4 h-1 w-10 rounded-full bg-red-500 transition-all duration-300 group-hover:w-16 motion-reduce:transition-none"
+                  aria-hidden="true"
+                />
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <blockquote className="relative mt-12 overflow-hidden rounded-2xl border border-white/10 bg-slate-900 px-6 py-8 sm:mt-16 sm:px-10 sm:py-10 lg:px-14">
+          <div
+            className="absolute -right-8 -top-10 text-[10rem] font-black leading-none text-white/[0.03]"
+            aria-hidden="true"
+          >
+            “
+          </div>
+          <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8">
+            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-red-600/10 text-3xl text-red-400">
+              <MdElectricBolt aria-hidden="true" />
+            </span>
+            <p className="max-w-4xl text-xl font-semibold leading-relaxed text-white sm:text-2xl">
+              {t("OurPrinciple")}
+            </p>
+          </div>
+        </blockquote>
       </div>
     </section>
   );
