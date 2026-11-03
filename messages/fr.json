@@ -255,42 +255,60 @@
     "likeProduct": "Aimer : {product}",
     "unlikeProduct": "Ne plus aimer : {product}",
     "bookProduct": "Réserver cet article",
+    "quantity": "Quantité",
+    "quantityForProduct": "Quantité de {product}",
+    "orderSummary": "Votre commande",
+    "emptyOrder": "Choisissez une quantité pour un produit afin de commencer votre commande.",
+    "itemCount": "Nombre total d’articles : {count}",
+    "estimatedTotal": "Total estimé",
+    "sendOrderRequest": "Envoyer la demande de commande",
+    "orderMessageIntro": "Bonjour, je souhaite commander les produits suivants :",
+    "orderMessageItem": "{product} : {quantity} × {unitPrice} = {total}",
+    "orderMessageTotal": "Nombre total d’articles : {quantity}. Total estimé : {total}. Merci de confirmer la disponibilité et le prix définitif.",
     "products": [
       {
         "id": "plug",
         "title": "Prises",
         "description": "Des points de raccordement fiables pour vos installations et remplacements.",
-        "image": "/products/plug.svg",
-        "price": 3.5
+        "image": "/products/plug.png",
+        "price": 2
       },
       {
         "id": "switch",
         "title": "Interrupteurs",
         "description": "Des interrupteurs pratiques, adaptés à vos besoins d’éclairage et d’installation.",
-        "image": "/products/switch.svg",
-        "price": 4
+        "image": "/products/switch.png",
+        "price": 2
       },
       {
         "id": "bulb",
         "title": "Ampoules",
         "description": "Des ampoules pour un éclairage quotidien confortable et efficace.",
-        "image": "/products/bulb.svg",
-        "price": 2.5
+        "image": "/products/bulb.png",
+        "price": 1
       },
       {
         "id": "spotlight",
         "title": "Spots",
         "description": "Des solutions d’éclairage ciblé pour les pièces, les espaces de travail et l’extérieur.",
-        "image": "/products/spotlight.svg",
-        "price": 8
+        "image": "/products/spot.jpg",
+        "price": 2
       },
       {
         "id": "breaker",
         "title": "Disjoncteurs",
         "description": "Des composants de protection pour une distribution électrique sûre.",
-        "image": "/products/breaker.svg",
-        "price": 12
+        "image": "/products/breaker.png",
+        "price": 2
       },
+      {
+        "id": "selecteur",
+        "title": "Sélecteur",
+        "description": "Des composants de protection pour une distribution électrique sûre.",
+        "image": "/products/selecteur.png",
+        "price": 15
+      }
+      ,
       {
         "id": "ceilingLight",
         "title": "Plafonniers",

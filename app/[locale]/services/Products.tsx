@@ -19,10 +19,37 @@ export default function Products({ products }: { products: Product[] }) {
   const t = useTranslations("ServicesPage");
   const locale = useLocale();
   const [likedProducts, setLikedProducts] = useState<string[]>([]);
+  const [quantities, setQuantities] = useState<Record<string, number>>({});
   const formatPrice = new Intl.NumberFormat(locale, {
     style: "currency",
     currency: "USD",
   });
+  const selectedProducts = products.filter(
+    (product) => (quantities[product.id] ?? 0) > 0,
+  );
+  const itemCount = selectedProducts.reduce(
+    (total, product) => total + quantities[product.id],
+    0,
+  );
+  const orderTotal = selectedProducts.reduce(
+    (total, product) => total + product.price * quantities[product.id],
+    0,
+  );
+  const orderMessage = [
+    t("orderMessageIntro"),
+    ...selectedProducts.map((product) =>
+      t("orderMessageItem", {
+        product: product.title,
+        quantity: quantities[product.id],
+        unitPrice: formatPrice.format(product.price),
+        total: formatPrice.format(product.price * quantities[product.id]),
+      }),
+    ),
+    t("orderMessageTotal", {
+      quantity: itemCount,
+      total: formatPrice.format(orderTotal),
+    }),
+  ].join("\n");
 
   const toggleLike = (productId: string) => {
     setLikedProducts((current) =>
@@ -30,6 +57,11 @@ export default function Products({ products }: { products: Product[] }) {
         ? current.filter((id) => id !== productId)
         : [...current, productId],
     );
+  };
+
+  const updateQuantity = (productId: string, value: string) => {
+    const quantity = Math.min(99, Math.max(0, Math.floor(Number(value) || 0)));
+    setQuantities((current) => ({ ...current, [productId]: quantity }));
   };
 
   return (
@@ -40,6 +72,7 @@ export default function Products({ products }: { products: Product[] }) {
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {products.map((product) => {
           const isLiked = likedProducts.includes(product.id);
+          const quantity = quantities[product.id] ?? 0;
 
           return (
             <article
@@ -89,9 +122,26 @@ export default function Products({ products }: { products: Product[] }) {
                     {formatPrice.format(product.price)}
                   </p>
                 </div>
+                <label className="mt-5 flex items-center justify-between gap-3 text-sm font-semibold text-slate-700">
+                  {t("quantity")}
+                  <input
+                    type="number"
+                    min="0"
+                    max="99"
+                    step="1"
+                    value={quantity}
+                    onChange={(event) =>
+                      updateQuantity(product.id, event.target.value)
+                    }
+                    aria-label={t("quantityForProduct", {
+                      product: product.title,
+                    })}
+                    className="w-20 rounded-lg border border-slate-200 bg-slate-50 p-2 text-center text-slate-900 focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
+                  />
+                </label>
                 <Link
                   href={`/contact?product=${encodeURIComponent(product.title)}`}
-                  className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-red-700 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-red-800 hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                  className="mt-4 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-red-700 px-4 py-3 text-sm font-semibold text-red-700 transition-colors hover:bg-red-50 hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                 >
                   {t("bookProduct")}
                   <FiArrowUpRight aria-hidden="true" />
@@ -101,6 +151,58 @@ export default function Products({ products }: { products: Product[] }) {
           );
         })}
       </div>
+      <section
+        aria-labelledby="order-summary-heading"
+        className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+      >
+        <h2
+          id="order-summary-heading"
+          className="text-2xl font-bold text-slate-950"
+        >
+          {t("orderSummary")}
+        </h2>
+        {selectedProducts.length > 0 ? (
+          <ul className="mt-5 divide-y divide-slate-200">
+            {selectedProducts.map((product) => {
+              const quantity = quantities[product.id];
+              return (
+                <li
+                  key={product.id}
+                  className="flex flex-wrap items-center justify-between gap-2 py-3 text-sm"
+                >
+                  <span className="font-medium text-slate-800">
+                    {product.title} × {quantity}
+                  </span>
+                  <span className="font-semibold text-slate-950">
+                    {formatPrice.format(product.price * quantity)}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <p className="mt-3 text-sm leading-6 text-slate-600">
+            {t("emptyOrder")}
+          </p>
+        )}
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-4">
+          <p className="font-semibold text-slate-800">
+            {t("itemCount", { count: itemCount })}
+          </p>
+          <p className="text-lg font-extrabold text-slate-950">
+            {t("estimatedTotal")}: {formatPrice.format(orderTotal)}
+          </p>
+        </div>
+        {selectedProducts.length > 0 && (
+          <Link
+            href={`/contact?message=${encodeURIComponent(orderMessage)}`}
+            className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-red-700 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-red-800 hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 sm:w-auto"
+          >
+            {t("sendOrderRequest")}
+            <FiArrowUpRight aria-hidden="true" />
+          </Link>
+        )}
+      </section>
     </>
   );
 }
