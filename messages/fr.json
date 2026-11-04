@@ -14,10 +14,10 @@
     "about": {
       "title": {
         "first": "Bienvenue chez",
-        "second": "Electrica Services"
+        "second": "Électricité, réseaux et informatique pour les particuliers et les entreprises"
       },
-      "description": "Des solutions fiables en électricité et en réseau pour les particuliers et les entreprises.",
-      "contactBtn": "CONTACTEZ-NOUS MAINTENANT"
+      "description": "De l’installation électrique à la mise en place de réseaux et à la maintenance informatique, nous proposons des solutions fiables aux particuliers et aux entreprises, adaptées à leurs besoins et réalisées avec soin.",
+      "contactBtn": "PARLONS DE VOTRE PROJET"
     },
     "presentation": {
       "title": "QUI SOMMES NOUS",
@@ -26,7 +26,7 @@
       "title3": "Des solutions pratiques, pensées pour vos besoins.",
       "electricalTag": "Génie électrique",
       "networkTag": "Ingénierie réseau",
-      "founderImageAlt": "KAGHENI Chris, fondateur d’Electrica",
+      "founderImageAlt": "KAGHENI Mbale Chris, fondateur d’Electrica",
       "founderRole": "PDG et fondateur d’Electrica",
       "founderLink": "En savoir plus",
       "description": "Electrica propose des services électriques et réseau aux particuliers et aux entreprises. Nous vous accompagnons dans la planification, l’installation et la maintenance de systèmes fiables, avec une communication claire à chaque étape.",
@@ -38,13 +38,13 @@
     },
     "Offer": {
       "title": "NOS SERVICES",
-      "description": "Des services électriques, réseau et informatiques pour votre projet",
+      "description": "Des services en électricité, réseaux et informatique, de l’installation à la maintenance",
       "services": {
         "first": "MAINTENANCE INFORMATIQUE",
         "second": "INSTALLATION DE RÉSEAU",
         "third": "INSTALLATION ÉLECTRIQUE"
       },
-      "OurPrinciple": "Nous Fournissons des services d'électricien et d'électricité de la meilleur qualité à tous."
+      "OurPrinciple": "Des services professionnels en électricité, réseaux et informatique, réalisés avec soin et dans le respect de la sécurité et de la fiabilité."
     },
     "Objectives": {
       "title": "POURQUOI NOUS CHOISIR",
@@ -258,10 +258,27 @@
     "quantity": "Quantité",
     "quantityForProduct": "Quantité de {product}",
     "orderSummary": "Votre commande",
+    "productSelector": "Choisissez vos produits",
     "emptyOrder": "Choisissez une quantité pour un produit afin de commencer votre commande.",
     "itemCount": "Nombre total d’articles : {count}",
+    "unitPrice": "Prix unitaire",
+    "lineTotal": "Total de la ligne",
     "estimatedTotal": "Total estimé",
-    "sendOrderRequest": "Envoyer la demande de commande",
+    "reviewSelection": "Voir la sélection ({count})",
+    "chooseProducts": "Choisir des produits ({count} sélectionnés)",
+    "closeOrder": "Fermer la commande",
+    "removeProduct": "Retirer",
+    "paymentMethod": "Mode de paiement",
+    "airtelMoney": "Airtel Money (RDC)",
+    "airtelPaymentNote": "Aucun paiement n’est encore effectué sur ce site. Envoyez votre demande ; Electrica confirmera la disponibilité, le montant définitif et les instructions de paiement Airtel Money.",
+    "requestAirtelPayment": "Demander les instructions de paiement Airtel Money",
+    "paymentRequestMessage": "Mode de paiement souhaité : Airtel Money (RDC). Merci de confirmer le montant définitif et de transmettre les instructions de paiement. Aucun paiement n’a encore été effectué.",
+    "futurePaymentMethods": "Autres modes de paiement",
+    "cardPayment": "Carte bancaire",
+    "bankTransfer": "Virement bancaire",
+    "orangeMoney": "Orange Money",
+    "mpesa": "M-Pesa",
+    "comingSoon": "Bientôt disponible",
     "orderMessageIntro": "Bonjour, je souhaite commander les produits suivants :",
     "orderMessageItem": "{product} : {quantity} × {unitPrice} = {total}",
     "orderMessageTotal": "Nombre total d’articles : {quantity}. Total estimé : {total}. Merci de confirmer la disponibilité et le prix définitif.",

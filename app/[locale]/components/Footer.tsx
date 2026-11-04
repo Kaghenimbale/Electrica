@@ -1,7 +1,8 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { FaWhatsapp } from "react-icons/fa";
-import { MdElectricBolt, MdLocationOn, MdMail, MdPhone } from "react-icons/md";
+import { MdLocationOn, MdMail, MdPhone } from "react-icons/md";
+import { SiThunderstore } from "react-icons/si";
 
 const Footer = () => {
   const t = useTranslations("HomeComponents.footer");
@@ -16,7 +17,7 @@ const Footer = () => {
             href="/"
             className="inline-flex items-center gap-2 text-2xl font-extrabold tracking-tight text-white hover:text-white hover:no-underline"
           >
-            <MdElectricBolt className="text-3xl text-red-500" aria-hidden="true" />
+            <SiThunderstore className="text-3xl text-red-500" aria-hidden="true" />
             Electrica
           </Link>
           <p className="mt-5 max-w-sm leading-7 text-slate-400">

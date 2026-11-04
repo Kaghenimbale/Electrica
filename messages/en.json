@@ -14,10 +14,10 @@
     "about": {
       "title": {
         "first": "Welcome to",
-        "second": "Electrica services"
+        "second": "Electrical, Network & IT Services"
       },
-      "description": "Reliable electrical and networking solutions for homes and businesses.",
-      "contactBtn": "CONTACT US NOW"
+      "description": "Electrical installations, network setup and computer maintenance for homes and businesses.",
+      "contactBtn": "DISCUSS YOUR PROJECT"
     },
     "presentation": {
       "title": "WHO WE ARE",
@@ -38,13 +38,13 @@
     },
     "Offer": {
       "title": "OUR SERVICES",
-      "description": "Electrical, networking and IT services for your project",
+      "description": "Electrical, network and IT services—from installation to maintenance.",
       "services": {
-        "first": "COMPUTER MAINTENANCE",
+        "first": "COMPUTER & IT MAINTENANCE",
         "second": "NETWORK INSTALLATION",
         "third": "ELECTRICAL INSTALLATION"
       },
-      "OurPrinciple": "We are Providing Best Quality Electrician and Electrical Services to All."
+      "OurPrinciple": "Professional electrical, networking and IT services, delivered with care and a focus on safety and reliability."
     },
     "Objectives": {
       "title": "WHY CHOOSE US",
@@ -258,10 +258,27 @@
     "quantity": "Quantity",
     "quantityForProduct": "Quantity of {product}",
     "orderSummary": "Your order",
+    "productSelector": "Choose your products",
     "emptyOrder": "Choose a quantity on any product to start your order.",
     "itemCount": "Total items: {count}",
+    "unitPrice": "Unit price",
+    "lineTotal": "Line total",
     "estimatedTotal": "Estimated total",
-    "sendOrderRequest": "Send order request",
+    "reviewSelection": "Review selection ({count})",
+    "chooseProducts": "Choose products ({count} selected)",
+    "closeOrder": "Close order",
+    "removeProduct": "Remove",
+    "paymentMethod": "Payment method",
+    "airtelMoney": "Airtel Money (DR Congo)",
+    "airtelPaymentNote": "No payment is taken on this website yet. Send your order request and Electrica will confirm availability, the final amount, and Airtel Money payment instructions.",
+    "requestAirtelPayment": "Request Airtel Money payment instructions",
+    "paymentRequestMessage": "Preferred payment method: Airtel Money (DR Congo). Please confirm the final amount and send payment instructions. No payment has been made yet.",
+    "futurePaymentMethods": "Other payment methods",
+    "cardPayment": "Bank card",
+    "bankTransfer": "Bank transfer",
+    "orangeMoney": "Orange Money",
+    "mpesa": "M-Pesa",
+    "comingSoon": "Coming soon",
     "orderMessageIntro": "Hello, I’d like to order these products:",
     "orderMessageItem": "{product}: {quantity} × {unitPrice} = {total}",
     "orderMessageTotal": "Total items: {quantity}. Estimated total: {total}. Please confirm availability and the final price.",
