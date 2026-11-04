@@ -32,12 +32,13 @@ const Form = () => {
   const [status, setStatus] = useState<"success" | "error" | null>(null);
 
   useEffect(() => {
-    const product = new URLSearchParams(window.location.search)
-      .get("product")
-      ?.trim()
-      .slice(0, 150);
+    const searchParams = new URLSearchParams(window.location.search);
+    const orderMessage = searchParams.get("message")?.trim().slice(0, 5000);
+    const product = searchParams.get("product")?.trim().slice(0, 150);
 
-    if (product) {
+    if (orderMessage) {
+      setFormData((current) => ({ ...current, Message: orderMessage }));
+    } else if (product) {
       setFormData((current) => ({
         ...current,
         Message: t("form.productBookingMessage", { product }),
